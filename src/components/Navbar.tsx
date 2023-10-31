@@ -8,6 +8,7 @@ export const Navbar = () => {
         <header>Tibia Helper</header>
         <div className="links">
           <div className="link"><Link to="/">Home</Link></div>
+          <div className="link"><Link to="/worlds">Worlds</Link></div>
         </div>
       </div>
     </nav>
