@@ -48,6 +48,7 @@ export const Worlds = () => {
         }
 
         setGeneralData(fetchedGeneralData);
+        console.log(generalData)
 
         // worldsData
         const fetchedWorldsData = data.worlds.regular_worlds
