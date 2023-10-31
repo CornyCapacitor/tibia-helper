@@ -18,3 +18,42 @@
   height: 400px;
   box-shadow: 0px 0px 100px 100px #242424;
 }
+
+.worlds-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.world {
+  display: flex;
+  flex-direction: row;
+  border: solid 1px;
+  gap: 10px;
+}
+
+.world-component {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+}
+
+.world-location {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+}
+
+.world-pvp-type {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+}
