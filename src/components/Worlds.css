@@ -19,19 +19,29 @@
   box-shadow: 0px 0px 100px 100px #242424;
 }
 
+.worlds-page-display {
+  display: flex;
+  gap: 20px;
+
+  /* refresh button  */
+  margin-left: 120px;
+}
+
 .worlds-table {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .world {
   display: flex;
   flex-direction: row;
-  border: solid 1px;
-  gap: 10px;
+  border-top: solid 1px;
+  border-left: solid 1px;
+  border-bottom: solid 1px;
 }
 
 .world-component {
@@ -40,20 +50,49 @@
   justify-content: center;
   align-items: center;
   height: 75px;
+  text-align: center;
+  border-right: solid 1px;
+  padding: 0px 10px;
 }
 
 .world-location {
-  width: 200px;
+  width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 75px;
+  border-right: solid 1px;
+  padding: 0px 10px;
 }
 
 .world-pvp-type {
-  width: 200px;
+  width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 75px;
+  border-right: solid 1px;
+  padding: 0px 10px;
+}
+
+.refresh {
+  align-self: flex-start;
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.loading {
+  font-size: 20px;
+}
+
+.general-data {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+}
+
+.highlight-data {
+  color: #DAA520;
 }
