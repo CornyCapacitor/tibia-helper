@@ -89,9 +89,6 @@ export const Character = () => {
         <div className="character-search">
           <input type="textbox" value={characterName} onChange={(e) => setCharacterName(e.target.value)} />
           <button onClick={fetchCharacter}>Search</button>
-          <button onClick={() => console.log(accountData)}>Whole data</button>
-          <button onClick={() => console.log(otherCharactersData)}>Other characters data</button>
-          <button onClick={() => console.log(accountData)}>Account data</button>
         </div>
         {isFetched ?
           <>
