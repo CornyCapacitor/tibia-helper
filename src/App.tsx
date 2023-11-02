@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import { Home } from './pages/Home'
-import { WorldsPage } from './pages/WorldsPage'
+import { WorldsPage } from './pages/Worlds'
 
 function App() {
   return (
