@@ -96,3 +96,10 @@
 .highlight-data {
   color: #DAA520;
 }
+
+.clickable-header {
+  &:hover {
+    cursor: pointer;
+    color: #DAA520;
+  }
+}
