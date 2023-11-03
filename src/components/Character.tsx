@@ -146,6 +146,7 @@ export const Character = () => {
           <>
             Fill the textbox with character name and press search button
           </>}
+        {generalData ? <></> : <></>}
       </div>
     </>
   )
