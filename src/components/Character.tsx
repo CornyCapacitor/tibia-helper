@@ -83,7 +83,7 @@ export const Character = () => {
 
   return (
     <>
-      <img className="background-image" src="https://i.redd.it/gcs5d4co5z891.png" />
+      <img className="background-image" src="https://www.f2p.com/wp-content/uploads/2014/02/Tibia-wallpaper-1.jpg" />
       <Navbar />
       <div className="character-page">
         <div className="character-search">
