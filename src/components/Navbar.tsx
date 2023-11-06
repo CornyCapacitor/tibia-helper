@@ -11,6 +11,9 @@ export const Navbar = () => {
           <div className="link"><Link to="/worlds">Worlds</Link></div>
           <div className="link"><Link to="/characters">Characters</Link></div>
           <div className="link"><Link to="/guilds">Guilds</Link></div>
+          <div className="link"><Link to="/spells">Spells</Link></div>
+          <div className="link"><Link to="/houses">Houses</Link></div>
+          <div className="link"><Link to="/creatures">Creatures</Link></div>
         </div>
       </div>
     </nav>
