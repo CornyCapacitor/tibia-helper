@@ -84,12 +84,12 @@ export const Worlds = () => {
         <div className="world-component">{players_online}</div>
         <div className="world-location">{location}</div>
         <div className="world-pvp-type">{pvp_type}</div>
-        <div className="world-component">{premium_only ? <span style={{ color: "lightgreen" }}>&#10003;</span> : <span style={{ color: "red" }}>&#10007;</span>}</div>
+        <div className="world-component">{premium_only ? <span style={{ color: "#3dff3d" }}>&#10003;</span> : <span style={{ color: "#ff3838" }}>&#10007;</span>}</div>
         <div className="world-component">{transfer_type}</div>
-        <div className="world-component">{battleye_protected ? <span style={{ color: "lightgreen" }}>&#10003;</span> : <span style={{ color: "red" }}>&#10007;</span>}</div>
-        <div className="world-component">{battleye_date ? <>{battleye_date}</> : <span style={{ color: "red" }}>&#10007;</span>}</div>
+        <div className="world-component">{battleye_protected ? <span style={{ color: "#3dff3d" }}>&#10003;</span> : <span style={{ color: "#ff3838" }}>&#10007;</span>}</div>
+        <div className="world-component">{battleye_date ? <>{battleye_date}</> : <span style={{ color: "#ff3838" }}>&#10007;</span>}</div>
         <div className="world-component">{game_world_type}</div>
-        <div className="world-component">{tournament_world_type ? <span style={{ color: "lightgreen" }}>&#10003;</span> : <span style={{ color: "red" }}>&#10007;</span>}</div>
+        <div className="world-component">{tournament_world_type ? <span style={{ color: "#3dff3d" }}>&#10003;</span> : <span style={{ color: "#ff3838" }}>&#10007;</span>}</div>
       </div>
     ));
   }
@@ -134,11 +134,13 @@ export const Worlds = () => {
         const currentSortFunction = (a: PlayersComparision, b: PlayersComparision) => b.players_online - a.players_online;
         worldsData?.sort(currentSortFunction);
         setPlayersOnlineSwitch(!playersOnlineSwitch);
+        return
       } else if (playersOnlineSwitch === true) {
         // Lowest to Highest
         const currentSortFunction = (a: PlayersComparision, b: PlayersComparision) => a.players_online - b.players_online;
         worldsData?.sort(currentSortFunction);
         setPlayersOnlineSwitch(!playersOnlineSwitch);
+        return
       }
     } else if (value === "location") {
       type LocationComparision = { location: string }
@@ -147,11 +149,13 @@ export const Worlds = () => {
         const currentSortFunction = (a: LocationComparision, b: LocationComparision) => a.location.localeCompare(b.location)
         worldsData?.sort(currentSortFunction);
         setLocationSwitch(!locationSwitch);
+        return
       } else if (locationSwitch === true) {
         // Z to A
         const currentSortFunction = (a: LocationComparision, b: LocationComparision) => b.location.localeCompare(a.location)
         worldsData?.sort(currentSortFunction);
         setLocationSwitch(!locationSwitch);
+        return
       }
     } else if (value === "pvp_type") {
       type PvpTypeComparision = { pvp_type: string }
@@ -160,25 +164,29 @@ export const Worlds = () => {
         const currentSortFunction = (a: PvpTypeComparision, b: PvpTypeComparision) => a.pvp_type.localeCompare(b.pvp_type)
         worldsData?.sort(currentSortFunction);
         setPvpTypeSwitch(!pvpTypeSwitch);
+        return
       } else if (pvpTypeSwitch === true) {
         // Z to A
         const currentSortFunction = (a: PvpTypeComparision, b: PvpTypeComparision) => b.pvp_type.localeCompare(a.pvp_type)
         worldsData?.sort(currentSortFunction);
         setPvpTypeSwitch(!pvpTypeSwitch);
+        return
       }
     } else if (value === "premium_only") {
-      // Not intended use of any - I just don't know why it doesn't allow me to play on any's
+      // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
       type PremiumComparision = { premium_only: boolean | any }
       if (premiumOnlySwitch === false) {
         // True to False
         const currentSortFunction = (a: PremiumComparision, b: PremiumComparision) => b.premium_only - a.premium_only
         worldsData?.sort(currentSortFunction);
         setPremiumOnlySwitch(!premiumOnlySwitch);
+        return
       } else if (premiumOnlySwitch === true) {
         // False to True
         const currentSortFunction = (a: PremiumComparision, b: PremiumComparision) => a.premium_only - b.premium_only
         worldsData?.sort(currentSortFunction);
         setPremiumOnlySwitch(!premiumOnlySwitch);
+        return
       }
     } else if (value === "transfer_type") {
       type TransferTypeComparision = { transfer_type: string }
@@ -187,25 +195,29 @@ export const Worlds = () => {
         const currentSortFunction = (a: TransferTypeComparision, b: TransferTypeComparision) => a.transfer_type.localeCompare(b.transfer_type)
         worldsData?.sort(currentSortFunction);
         setTransferTypeSwitch(!transferTypeSwitch);
+        return
       } else if (transferTypeSwitch === true) {
         // Z to A
         const currentSortFunction = (a: TransferTypeComparision, b: TransferTypeComparision) => b.transfer_type.localeCompare(a.transfer_type)
         worldsData?.sort(currentSortFunction);
         setTransferTypeSwitch(!transferTypeSwitch);
+        return
       }
     } else if (value === "battleye_protected") {
-      // Not intended use of any - I just don't know why it doesn't allow me to play on any's
+      // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
       type BattleyeComparision = { battleye_protected: boolean | any }
       if (battleyeProtectedSwitch === false) {
         // True to False
         const currentSortFunction = (a: BattleyeComparision, b: BattleyeComparision) => a.battleye_protected - b.battleye_protected
         worldsData?.sort(currentSortFunction);
         setBattleyeProtectedSwitch(!battleyeProtectedSwitch);
+        return
       } else if (battleyeProtectedSwitch === true) {
         // False to True
         const currentSortFunction = (a: BattleyeComparision, b: BattleyeComparision) => b.battleye_protected - a.battleye_protected
         worldsData?.sort(currentSortFunction);
         setBattleyeProtectedSwitch(!battleyeProtectedSwitch);
+        return
       }
     } else if (value === "battleye_date") {
       type BattleyeDateComparision = { battleye_date: string }
@@ -214,11 +226,13 @@ export const Worlds = () => {
         const currentSortFunction = (a: BattleyeDateComparision, b: BattleyeDateComparision) => a.battleye_date.localeCompare(b.battleye_date)
         worldsData?.sort(currentSortFunction);
         setBattleyeDateSwitch(!battleyeDateSwitch);
+        return
       } else if (battleyeDateSwitch === true) {
         // Z to A
         const currentSortFunction = (a: BattleyeDateComparision, b: BattleyeDateComparision) => b.battleye_date.localeCompare(a.battleye_date)
         worldsData?.sort(currentSortFunction);
         setBattleyeDateSwitch(!battleyeDateSwitch);
+        return
       }
     } else if (value === "game_world_type") {
       type WorldTypeComparision = { game_world_type: string }
@@ -227,11 +241,13 @@ export const Worlds = () => {
         const currentSortFunction = (a: WorldTypeComparision, b: WorldTypeComparision) => a.game_world_type.localeCompare(b.game_world_type)
         worldsData?.sort(currentSortFunction);
         setGameWorldTypeSwitch(!gameWorldTypeSwitch);
+        return
       } else if (gameWorldTypeSwitch === true) {
         // Z to A
         const currentSortFunction = (a: WorldTypeComparision, b: WorldTypeComparision) => b.game_world_type.localeCompare(a.game_world_type)
         worldsData?.sort(currentSortFunction);
         setGameWorldTypeSwitch(!gameWorldTypeSwitch);
+        return
       }
     } else if (value === "tournament_world_type") {
       type TournamentWorldComparision = { tournament_world_type: boolean | any }
@@ -240,11 +256,13 @@ export const Worlds = () => {
         const currentSortFunction = (a: TournamentWorldComparision, b: TournamentWorldComparision) => a.tournament_world_type - b.tournament_world_type
         worldsData?.sort(currentSortFunction);
         setTournamentWorldTypeSwitch(!tournamentWorldTypeSwitch);
+        return
       } else if (tournamentWorldTypeSwitch === true) {
         // False to True
         const currentSortFunction = (a: TournamentWorldComparision, b: TournamentWorldComparision) => b.tournament_world_type - a.tournament_world_type
         worldsData?.sort(currentSortFunction);
         setTournamentWorldTypeSwitch(!tournamentWorldTypeSwitch);
+        return
       }
     }
   }
