@@ -35,7 +35,7 @@
   flex-direction: column;
   border: solid 1px;
   padding: 10px 19px;
-  width: 250px;
+  width: 280px;
   height: max-content;
 }
 
@@ -46,6 +46,7 @@
 
 .character-detail {
   width: auto;
+  border-top: 1px solid;
 }
 
 .other-characters {
@@ -53,16 +54,13 @@
   flex-direction: column;
   border: solid 1px;
   padding: 10px 19px;
-  width: 250px;
+  width: 280px;
   height: max-content;
 }
 
 .other-character {
   width: auto;
-
-  &:hover {
-    cursor: pointer;
-  }
+  border-top: 1px solid;
 }
 
 .account-details {
@@ -70,10 +68,61 @@
   flex-direction: column;
   border: solid 1px;
   padding: 10px 19px;
-  width: 250px;
+  width: 280px;
   height: max-content;
 }
 
 .header {
   align-self: center;
+}
+
+.search-button {
+  align-self: flex-start;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #DAA520;
+  color: white;
+  font-family: Poppins, sans-serif;
+
+  &:hover {
+    filter: brightness(90%);
+    transition: 0.2s;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px #DAA520;
+  }
+}
+
+.search-bar {
+  width: 250px;
+  outline: none;
+  border-radius: 10px;
+  border: solid 2px;
+  border-color: #DAA520;
+  outline-color: #DAA520;
+  box-shadow: 0px 0px 15px #DAA520;
+  background-color: lightgray;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  &:focus {
+    filter: brightness(90%);
+  }
+}
+
+.gold-hover {
+  &:hover {
+    cursor: pointer;
+    color: #DAA520;
+    transition: 0.2s;
+  }
+}
+
+.gold-fragment {
+  color: #DAA520;
+  cursor: pointer;
 }
