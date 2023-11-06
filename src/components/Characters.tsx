@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ReactNode, useState } from 'react';
-import './Character.css';
+import './Characters.css';
 import { Navbar } from "./Navbar";
 
 type CharacterData = {
@@ -33,7 +33,7 @@ type OtherCharactersData = {
 
 type OtherCharactersDataRender = (value: OtherCharactersData[]) => ReactNode;
 
-export const Character = () => {
+export const Characters = () => {
   const [isFetched, setIsFetched] = useState<boolean>(false);
   const [characterName, setCharacterName] = useState<string>("");
   const [generalData, setGeneralData] = useState<any>();

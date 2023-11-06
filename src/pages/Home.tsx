@@ -4,7 +4,7 @@ import './Home.css'
 export const Home = () => {
   return (
     <>
-      <img className="background-image" src="https://tibiopedia.pl/images/static/artcorner/MastroDaro1626199358.jpg" />
+      <img className="background-image" src="https://nextcloud.cipsoft.com/index.php/apps/files_sharing/publicpreview/JQfrYtjAAm2rEN7?file=/Anniversary%20(25%20Years)/Tibia_Artwork_25Years.jpg&fileId=83672&x=1920&y=1080&a=true" />
       <Navbar />
       <div className="home-page">
         <header>Welcome to Tibia helper!</header>
