@@ -261,7 +261,7 @@ export const Guilds = () => {
             </>
           </div>
           :
-          <>Fill the textbox with character name and press search button</>}
+          <>Fill the textbox with guild name and press search button</>}
       </div >
     </>
   )
