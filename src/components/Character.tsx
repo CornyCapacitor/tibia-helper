@@ -57,6 +57,7 @@ export const Character = () => {
         }
       })
       .then((data) => {
+        setCharacterName("");
         setGeneralData(data);
         setCharacterData(data.character.character)
         setOtherCharactersData(data.character.other_characters)
@@ -75,9 +76,7 @@ export const Character = () => {
 
   const renderOtherCharactersData: OtherCharactersDataRender = (value) => {
     return value.map(({ name }: OtherCharactersData) => (
-      <div key={name}>
-        <span className="other-character" onClick={() => charNameClicked(name)}>{name}</span>
-      </div>
+      <span key={name} className="other-character" onClick={() => charNameClicked(name)}><span className="gold-hover">{name}</span></span>
     ))
   }
 
@@ -87,8 +86,8 @@ export const Character = () => {
       <Navbar />
       <div className="character-page">
         <div className="character-search">
-          <input type="textbox" value={characterName} onChange={(e) => setCharacterName(e.target.value)} />
-          <button onClick={fetchCharacter}>Search</button>
+          <input type="textbox" value={characterName} onChange={(e) => setCharacterName(e.target.value)} className="search-bar" />
+          <button onClick={fetchCharacter} className="search-button">Search</button>
         </div>
         {isFetched ?
           <>
@@ -98,19 +97,18 @@ export const Character = () => {
                   <header className="header">Character details:</header>
                   <span className="character-detail">Name: {characterData.name}</span>
                   <span className="character-detail">Sex: {characterData.sex}</span>
-                  <span>Title: {characterData.title}</span>
-                  <span>Unlocked titles: {characterData.unlocked_titles}</span>
-                  <span>Vocation: {characterData.vocation}</span>
-                  <span>Level: {characterData.level}</span>
-                  <span>Achievement points: {characterData.achievement_points}</span>
-                  <span>World: {characterData.world}</span>
-                  <span>Residence: {characterData.residence}</span>
+                  <span className="character-detail">Title: {characterData.title}</span>
+                  <span className="character-detail">Unlocked titles: {characterData.unlocked_titles}</span>
+                  <span className="character-detail">Vocation: {characterData.vocation}</span>
+                  <span className="character-detail">Level: {characterData.level}</span>
+                  <span className="character-detail">Achievement points: {characterData.achievement_points}</span>
+                  <span className="character-detail">World: {characterData.world}</span>
+                  <span className="character-detail">Residence: {characterData.residence}</span>
                   {characterData.guild.name && characterData.guild.rank ? <div>
-                    <span>Guild name: {characterData.guild.rank}</span>
-                    <span>Guild rank: {characterData.guild.rank}</span>
-                  </div> : <span>Guild: not in a guild</span>}
-                  <span>Last login: {characterData.last_login.substring(0, 10)}</span>
-                  <span>Account status: {characterData.account_status}</span>
+                    <span className="character-detail">Guild rank: {characterData.guild.rank} of the <a target="_blank" href={"https://www.tibia.com/community/?subtopic=guilds&page=view&GuildName=" + characterData.guild.name}><span className="gold-fragment">{characterData.guild.name}</span></a></span>
+                  </div> : <span className="character-detail">Guild: not in a guild</span>}
+                  <span className="character-detail">Last login: {characterData.last_login.substring(0, 10)}</span>
+                  <span className="character-detail">Account status: {characterData.account_status}</span>
                 </div>
                 :
                 <>
