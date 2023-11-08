@@ -53,9 +53,9 @@ export const Spells = () => {
         <div className="spell-detail-id">{spell_id}</div>
         <div className="spell-detail"><img src={`https://static.tibia.com/images/library/${spell_id}.png`} /></div>
         <div className="spell-detail">{formula}</div>
-        <div className="spell-detail">{level}</div>
+        <div className="spell-detail">{level === 0 ? <span style={{ color: "#ff3838" }}>&#10007;</span> : <>{level}</>}</div>
         <div className="spell-detail">{mana}</div>
-        <div className="spell-detail">{price}</div>
+        <div className="spell-detail">{price === 0 ? <span style={{ color: "#ff3838" }}>&#10007;</span> : <>{price}</>}</div>
         <div className="spell-detail">{group_attack ? <span style={{ color: "#3dff3d" }}>&#10003;</span> : <span style={{ color: "#ff3838" }}>&#10007;</span>}</div>
         <div className="spell-detail">{group_healing ? <span style={{ color: "#3dff3d" }}>&#10003;</span> : <span style={{ color: "#ff3838" }}>&#10007;</span>}</div>
         <div className="spell-detail">{group_support ? <span style={{ color: "#3dff3d" }}>&#10003;</span> : <span style={{ color: "#ff3838" }}>&#10007;</span>}</div>
