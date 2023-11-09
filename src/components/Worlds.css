@@ -34,14 +34,14 @@
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  border-bottom: solid 1px;
 }
 
 .world {
   display: flex;
   flex-direction: row;
-  border-top: solid 1px;
   border-left: solid 1px;
-  border-bottom: solid 1px;
+  border-top: solid 1px;
 }
 
 .world-component {

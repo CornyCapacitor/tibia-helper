@@ -300,7 +300,7 @@ export const Worlds = () => {
             {isFetched ?
               renderWorldList(worldsData ?? [])
               :
-              <div className="general-data">
+              <div>
                 <span className="loading">Loading worlds...</span>
               </div>}
           </div>
