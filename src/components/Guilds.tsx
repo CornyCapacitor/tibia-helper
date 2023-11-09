@@ -262,7 +262,7 @@ export const Guilds = () => {
             </>
           </div>
           :
-          <></>}
+          <>Example: <span className="gold-hover" onClick={() => setGuildName("Hill")}>Hill</span></>}
       </div >
     </>
   )

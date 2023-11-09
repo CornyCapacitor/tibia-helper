@@ -142,7 +142,7 @@ export const Characters = () => {
             </div>
           </>
           :
-          <></>}
+          <>Example: <span className="gold-hover" onClick={() => setCharacterName("Mateusz Dragon Wielki")}>Mateusz Dragon Wielki</span></>}
         {generalData ? <></> : <></>}
       </div>
     </>
