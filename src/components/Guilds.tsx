@@ -196,6 +196,7 @@ export const Guilds = () => {
       <img className="background-image" src="https://c.wallhere.com/images/dc/db/bf0f2b38fab4fe5804ce04563ae2-1706939.jpg!d" />
       <Navbar />
       <div className="guilds-page">
+        <span>Fill the textbox with guild name and press search button</span>
         <div className="guild-search">
           <input type="textbox" value={guildName} onChange={(e) => setGuildName(e.target.value)} className="search-bar" />
           <button onClick={fetchGuild} className="search-button">Search</button>
@@ -261,7 +262,7 @@ export const Guilds = () => {
             </>
           </div>
           :
-          <>Fill the textbox with guild name and press search button</>}
+          <></>}
       </div >
     </>
   )

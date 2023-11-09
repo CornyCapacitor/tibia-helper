@@ -18,12 +18,12 @@
   height: 400px;
   box-shadow: 0px -20px 20px 5px #242424;
   z-index: 999;
+  gap: 10px;
 }
 
 .guild-search {
   display: flex;
   gap: 10px;
-  padding: 20px;
 }
 
 .search-button {
@@ -52,7 +52,6 @@
   border: solid 2px;
   border-color: #DAA520;
   outline-color: #DAA520;
-  box-shadow: 0px 0px 15px #DAA520;
   background-color: lightgray;
 
   &:hover {
@@ -60,6 +59,7 @@
   }
 
   &:focus {
+    box-shadow: 0px 0px 15px #DAA520;
     filter: brightness(90%);
   }
 }

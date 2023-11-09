@@ -85,6 +85,7 @@ export const Characters = () => {
       <img className="background-image" src="https://wallpapercave.com/wp/wp7219191.jpg" />
       <Navbar />
       <div className="character-page">
+        <span>Fill the textbox with character name and press search button</span>
         <div className="character-search">
           <input type="textbox" value={characterName} onChange={(e) => setCharacterName(e.target.value)} className="search-bar" />
           <button onClick={fetchCharacter} className="search-button">Search</button>
@@ -141,9 +142,7 @@ export const Characters = () => {
             </div>
           </>
           :
-          <>
-            Fill the textbox with character name and press search button
-          </>}
+          <></>}
         {generalData ? <></> : <></>}
       </div>
     </>
