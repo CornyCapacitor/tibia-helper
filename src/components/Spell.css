@@ -7,7 +7,7 @@
   top: 0;
 }
 
-.spells-page {
+.spell-page {
   display: flex;
   position: relative;
   justify-content: flex-start;
@@ -21,43 +21,39 @@
   padding: 20px;
 }
 
-.spell-list {
+.spell-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 320px;
+  border: 1px solid;
+  padding: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.spell {
-  display: flex;
-  flex-direction: row;
-  border-top: solid 1px;
-  border-left: solid 1px;
-  border-bottom: solid 1px;
+.spell-name {
+  font-size: 25px;
+  color: #DAA520;
+  text-align: center;
 }
 
-.spell-detail {
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 75px;
-  text-align: center;
-  border-right: solid 1px;
-  padding: 0px 10px;
+.spell-image {
+  padding: 10px 0px;
 }
 
-.spell-detail-id {
-  width: 200px;
+.spell-info {
+  border-top: 1px solid;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 75px;
-  text-align: center;
-  border-right: solid 1px;
-  padding: 0px 10px;
+  padding: 5px 0px;
+}
+
+.spell-header {
+  padding: 5px 0px;
+  color: #DAA520;
 }
 
 .gold-hover {
@@ -66,4 +62,10 @@
     color: #DAA520;
     transition: 0.2s;
   }
+}
+
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
