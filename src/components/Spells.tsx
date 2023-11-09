@@ -50,7 +50,7 @@ export const Spells = () => {
   const renderSpells: SpellsRender = (value) => {
     return value.map(({ name, spell_id, formula, level, mana, price, group_attack, group_healing, group_support, type_instant, type_rune, premium_only }: Spells) => (
       <div key={name} className="spell">
-        <div className="spell-detail"><span className="gold-hover"><Link to={'/spells/' + spell_id}>{name}</Link></span></div>
+        <div className="spell-detail"><Link className="gold-hover" to={'/spells/' + spell_id}>{name}</Link></div>
         <div className="spell-detail-id">{spell_id}</div>
         <div className="spell-detail"><img src={`https://static.tibia.com/images/library/${spell_id}.png`} /></div>
         <div className="spell-detail">{formula}</div>

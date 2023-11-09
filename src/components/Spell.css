@@ -24,15 +24,19 @@
 .spell-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  width: 300px;
+  width: 320px;
   border: 1px solid;
   padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .spell-name {
   font-size: 25px;
   color: #DAA520;
+  text-align: center;
 }
 
 .spell-image {
@@ -50,4 +54,18 @@
 .spell-header {
   padding: 5px 0px;
   color: #DAA520;
+}
+
+.gold-hover {
+  &:hover {
+    cursor: pointer;
+    color: #DAA520;
+    transition: 0.2s;
+  }
+}
+
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
