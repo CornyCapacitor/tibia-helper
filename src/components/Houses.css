@@ -23,6 +23,7 @@
 
 .houses-search {
   display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
@@ -88,4 +89,79 @@
     color: #DAA520;
     transition: 0.2s;
   }
+}
+
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 40px;
+  justify-content: center;
+}
+
+.flexrownogap {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  justify-content: center;
+}
+
+.house {
+  display: flex;
+  border-bottom: solid 1px;
+  border-left: solid 1px;
+}
+
+.house-detail {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  text-align: center;
+  border-right: solid 1px;
+  padding: 0px 10px;
+}
+
+.house-auctioned {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  text-align: center;
+  border-right: solid 1px;
+  padding: 0px 31px;
+}
+
+.auction-status-header {
+  width: 300px;
+  height: 37px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-right: solid 1px;
+  padding: 0px 31px;
+}
+
+.auction-status-child {
+  width: 100px;
+  height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-right: solid 1px;
+  border-top: solid 1px;
+  padding: 0px 10px;
+}
+
+.table-header {
+  border: solid 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -2,38 +2,63 @@ import { ReactNode, useEffect, useState } from 'react';
 import './Houses.css';
 import { Navbar } from "./Navbar";
 
-type WorldName = string;
+type Name = string;
 
-type WorldNamesRender = (value: WorldName[]) => ReactNode;
+type Data = {
+  name: string,
+  house_id: number,
+  size: number,
+  rent: number,
+  rented: boolean,
+  auctioned: boolean,
+  auction: {
+    current_bid: number,
+    finished: boolean,
+    time_left: string,
+  }
+}
+
+type NamesRender = (value: Name[]) => ReactNode;
+
+type DataRender = (value: Data[]) => ReactNode;
 
 export const Houses = () => {
   const [isFetched, setIsFetched] = useState<boolean>(false);
-  const [worldNames, setWorldNames] = useState<WorldName[]>();
+  const [worldNames, setWorldNames] = useState<Name[]>();
+  const [townNames] = useState<Name[]>(["Ab'Dendriel", "Ankrahmun", "Carlin", "Darashia", "Edron", "Farmine", "Gray Beach", "Issavi",
+    "Kazordoon", "Liberty Bay", "Moonfall", "Port Hope", "Rathleton", "Silvertides", "Svargrond", "Thais", "Venore", "Yalahar"
+  ]);
   const [selectedWorld, setSelectedWorld] = useState<string>("");
   const [selectedTown, setSelectedTown] = useState<string>("");
-  const [houses, setHouses] = useState<any[]>();
+  const [houses, setHouses] = useState<Data[]>();
+  const [guildhalls, setGuildhalls] = useState<Data[]>();
 
   const fetchHouses = () => {
     setIsFetched(false);
-
-    fetch(`https://dev.tibiadata.com/v4/houses/${worldName}/${townName}`)
-      .then((response) => {
-        if (response.status >= 200 && response.status < 300) {
-          return response.json();
-        } else {
-          throw new Error(`HTTP Error: ${response.status}`);
-        }
-      })
-      .then((data) => {
-        setIsFetched(true);
-        setSelectedWorld("");
-        setSelectedTown("");
-        setHouses(data)
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    if (!selectedWorld || !selectedTown) {
+      console.error("Town or World not provided")
+    } else {
+      fetch(`https://dev.tibiadata.com/v4/houses/${selectedWorld}/${selectedTown}`)
+        .then((response) => {
+          if (response.status >= 200 && response.status < 300) {
+            return response.json();
+          } else {
+            throw new Error(`HTTP Error: ${response.status}`);
+          }
+        })
+        .then((data) => {
+          setIsFetched(true);
+          setHouses(data.houses.house_list)
+          setGuildhalls(data.houses.guildhall_list)
+          console.log("Houses:")
+          console.log(data.houses.house_list);
+          console.log("Guildhalls")
+          console.log(data.houses.guildhall_list);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
   }
 
   const fetchWorldNames = () => {
@@ -53,13 +78,32 @@ export const Houses = () => {
       })
   }
 
-  const renderWorldNames: WorldNamesRender = (value) => {
-    return value.map((world) => (
-      <option value={world} key={world}>{world}</option>
+  useEffect(fetchWorldNames, [])
+
+  const renderOptions: NamesRender = (value) => {
+    return value.map((option) => (
+      <option value={option} key={option}>{option}</option>
     ));
   }
 
-  useEffect(fetchWorldNames, [])
+  const renderData: DataRender = (value) => {
+    return value.map(({ name, house_id, size, rent, rented, auctioned, auction }: Data) => (
+      <div key={house_id} className="house">
+        <div className="house-detail">{name}</div>
+        <div className="house-detail">{house_id}</div>
+        <div className="house-detail">{size}</div>
+        <div className="house-detail">{rent}</div>
+        <div className="house-detail">{rented ? <span style={{ color: "#3dff3d" }}>&#10003;</span> : <span style={{ color: "#ff3838" }}>&#10007;</span>}</div>
+        <div className="flexrownogap">
+          {auctioned ? <>
+            <div className="house-detail">{auction.current_bid} gp</div>
+            <div className="house-detail">{auction.time_left !== "" ? <>{auction.time_left}</> : <>No data</>}</div>
+            <div className="house-detail">{auction.finished ? <span style={{ color: "#3dff3d" }}>&#10003;</span> : <span style={{ color: "#ff3838" }}>&#10007;</span>}</div>
+          </> : <div className="house-auctioned">Not auctioned</div>}
+        </div>
+      </div>
+    ))
+  }
 
   return (
     <>
@@ -68,13 +112,68 @@ export const Houses = () => {
       <div className="houses-page">
         <span>Fill the textboxes with world and town name, and press search button to search houses in that town</span>
         <div className="houses-search">
-          <select className="select-bar" value={selectedWorld} onChange={(e) => setSelectedWorld(e.target.value)}>
-            <option value="" disabled>Choose world</option>
-            {renderWorldNames(worldNames ?? [])}
-          </select>
-          <button className="search-button" onClick={() => console.log(selectedWorld)}>Search</button>
+          <div className="flexrow">
+            <select className="select-bar" value={selectedWorld} onChange={(e) => setSelectedWorld(e.target.value)}>
+              <option value="" disabled>Choose world</option>
+              {renderOptions(worldNames ?? [])}
+            </select>
+          </div>
+          {selectedWorld ?
+            <div className="flexrow">
+              <select className="select-bar" value={selectedTown} onChange={(e) => setSelectedTown(e.target.value)}>
+                <option value="" disabled>Choose town</option>
+                {renderOptions(townNames ?? [])}
+              </select>
+            </div>
+            : <></>}
+          {selectedWorld && selectedTown ?
+            <div className="flexrow">
+              <button className="search-button" onClick={() => fetchHouses()}>Search</button>
+            </div>
+            : <></>}
         </div>
-        {isFetched ? <>Fetched</> : <></>}
+        {isFetched && houses && guildhalls ?
+          <>
+            <div>
+              <header className="table-header">Houses</header>
+              <div className="house">
+                <div className="house-detail">Name:</div>
+                <div className="house-detail">House id:</div>
+                <div className="house-detail">Size:</div>
+                <div className="house-detail">Rent:</div>
+                <div className="house-detail">Rented:</div>
+                <div className="house-auctioned">
+                  <span className="auction-status-header">Auction status:</span>
+                  <div className="flexrownogap">
+                    <div className="auction-status-child">Current bid:</div>
+                    <div className="auction-status-child">Time left:</div>
+                    <div className="auction-status-child">Finished:</div>
+                  </div>
+                </div>
+              </div>
+              {renderData(houses ?? [])}
+            </div>
+            <div>
+              <header className="table-header">Guildhalls</header>
+              <div className="house">
+                <div className="house-detail">Name:</div>
+                <div className="house-detail">House id:</div>
+                <div className="house-detail">Size:</div>
+                <div className="house-detail">Rent:</div>
+                <div className="house-detail">Rented:</div>
+                <div className="house-auctioned">
+                  <span className="auction-status-header">Auction status:</span>
+                  <div className="flexrownogap">
+                    <div className="auction-status-child">Current bid:</div>
+                    <div className="auction-status-child">Time left:</div>
+                    <div className="auction-status-child">Finished:</div>
+                  </div>
+                </div>
+              </div>
+              {renderData(guildhalls ?? [])}
+            </div>
+          </>
+          : <></>}
       </div>
     </>
   )
