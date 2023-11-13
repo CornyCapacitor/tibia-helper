@@ -123,6 +123,17 @@
   padding: 0px 10px;
 }
 
+.house-name {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  text-align: center;
+  border-right: solid 1px;
+  padding: 0px 10px;
+}
+
 .house-auctioned {
   width: 300px;
   display: flex;

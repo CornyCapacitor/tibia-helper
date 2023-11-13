@@ -89,7 +89,7 @@ export const Houses = () => {
   const renderData: DataRender = (value) => {
     return value.map(({ name, house_id, size, rent, rented, auctioned, auction }: Data) => (
       <div key={house_id} className="house">
-        <div className="house-detail">{name}</div>
+        <div className="house-name">{name}</div>
         <div className="house-detail">{house_id}</div>
         <div className="house-detail">{size}</div>
         <div className="house-detail">{rent}</div>
@@ -132,48 +132,59 @@ export const Houses = () => {
             </div>
             : <></>}
         </div>
-        {isFetched && houses && guildhalls ?
+        {isFetched && houses !== null && guildhalls !== null ?
           <>
-            <div>
-              <header className="table-header">Houses</header>
-              <div className="house">
-                <div className="house-detail">Name:</div>
-                <div className="house-detail">House id:</div>
-                <div className="house-detail">Size:</div>
-                <div className="house-detail">Rent:</div>
-                <div className="house-detail">Rented:</div>
-                <div className="house-auctioned">
-                  <span className="auction-status-header">Auction status:</span>
-                  <div className="flexrownogap">
-                    <div className="auction-status-child">Current bid:</div>
-                    <div className="auction-status-child">Time left:</div>
-                    <div className="auction-status-child">Finished:</div>
+            <a href="#guildhallskip"><span id="houseskip" className="gold-hover">Skip to guildhalls</span></a>
+            {houses ?
+              <>
+                <div>
+                  <header className="table-header">Houses</header>
+                  <div className="house">
+                    <div className="house-name">Name:</div>
+                    <div className="house-detail">House id:</div>
+                    <div className="house-detail">Size:</div>
+                    <div className="house-detail">Rent:</div>
+                    <div className="house-detail">Rented:</div>
+                    <div className="house-auctioned">
+                      <span className="auction-status-header">Auction status:</span>
+                      <div className="flexrownogap">
+                        <div className="auction-status-child">Current bid:</div>
+                        <div className="auction-status-child">Time left:</div>
+                        <div className="auction-status-child">Finished:</div>
+                      </div>
+                    </div>
                   </div>
+                  {renderData(houses ?? [])}
                 </div>
-              </div>
-              {renderData(houses ?? [])}
-            </div>
-            <div>
-              <header className="table-header">Guildhalls</header>
-              <div className="house">
-                <div className="house-detail">Name:</div>
-                <div className="house-detail">House id:</div>
-                <div className="house-detail">Size:</div>
-                <div className="house-detail">Rent:</div>
-                <div className="house-detail">Rented:</div>
-                <div className="house-auctioned">
-                  <span className="auction-status-header">Auction status:</span>
-                  <div className="flexrownogap">
-                    <div className="auction-status-child">Current bid:</div>
-                    <div className="auction-status-child">Time left:</div>
-                    <div className="auction-status-child">Finished:</div>
+              </> : <>No house information for selected world/town combiation</>}
+            {guildhalls ?
+              <>
+                <a href="#houseskip"><span id="guildhallskip" className="gold-hover">Skip to houses</span></a>
+                <div>
+                  <header className="table-header">Guildhalls</header>
+                  <div className="house">
+                    <div className="house-name">Name:</div>
+                    <div className="house-detail">House id:</div>
+                    <div className="house-detail">Size:</div>
+                    <div className="house-detail">Rent:</div>
+                    <div className="house-detail">Rented:</div>
+                    <div className="house-auctioned">
+                      <span className="auction-status-header">Auction status:</span>
+                      <div className="flexrownogap">
+                        <div className="auction-status-child">Current bid:</div>
+                        <div className="auction-status-child">Time left:</div>
+                        <div className="auction-status-child">Finished:</div>
+                      </div>
+                    </div>
                   </div>
+                  {guildhalls ? renderData(guildhalls ?? []) : <></>}
                 </div>
-              </div>
-              {renderData(guildhalls ?? [])}
-            </div>
+              </> : <>No guildhall information for selected world/town combination</>}
           </>
-          : <></>}
+          :
+          <>
+            No house/guildhall information for selected world/town combination
+          </>}
       </div>
     </>
   )
