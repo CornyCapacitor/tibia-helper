@@ -115,7 +115,7 @@ export const Creatures = () => {
               </div>
             </div>
           </>
-          : <>Failed to load creatures data</>}
+          : <>Loading creatures data</>}
       </div>
     </>
   )
