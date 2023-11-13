@@ -47,7 +47,8 @@ export const Spell = () => {
 
               <div className="spell-info">Formula: {spell.spell_information.formula}</div>
               {spell.spell_information.damage_type !== "var." && spell.spell_information.damage_type !== "" ?
-                <div className="spell-info">Element: {spell.spell_information.damage_type}</div> : <></>
+                <div className="spell-info">Element:
+                  <span className={spell.spell_information.damage_type}>&nbsp;{spell.spell_information.damage_type}</span></div> : <></>
               }
               <div className="spell-info">Mana: {spell.spell_information.mana}</div>
               <div className="spell-info">Soul points: {spell.spell_information.soul_points}</div>
@@ -73,7 +74,7 @@ export const Spell = () => {
 
               <div className="spell-info">Cost: {spell.spell_information.price} gp</div>
               <div className="spell-info flexcolumn">Places to buy: {spell.spell_information.city.map((city: string) => (
-                <div key={city}>{city}</div>
+                <div key={city}>{city},</div>
               ))}</div>
             </div>
           </>
