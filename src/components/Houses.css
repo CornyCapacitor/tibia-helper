@@ -18,4 +18,161 @@
   height: 400px;
   box-shadow: 0px -20px 20px 5px #242424;
   z-index: 999;
+  gap: 10px;
+}
+
+.houses-search {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-button {
+  align-self: flex-start;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #DAA520;
+  color: white;
+  font-family: Poppins, sans-serif;
+
+  &:hover {
+    filter: brightness(90%);
+    transition: 0.2s;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px #DAA520;
+  }
+}
+
+.search-bar {
+  width: 250px;
+  outline: none;
+  border-radius: 10px;
+  border: solid 2px;
+  border-color: #DAA520;
+  outline-color: #DAA520;
+  background-color: lightgray;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 15px #DAA520;
+    filter: brightness(90%);
+  }
+}
+
+.select-bar {
+  width: 250px;
+  outline: none;
+  border: solid 2px;
+  border-color: #DAA520;
+  outline-color: #DAA520;
+  background-color: lightgray;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 15px #DAA520;
+    filter: brightness(90%);
+  }
+}
+
+.gold-hover {
+  &:hover {
+    cursor: pointer;
+    color: #DAA520;
+    transition: 0.2s;
+  }
+}
+
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 40px;
+  justify-content: center;
+}
+
+.flexrownogap {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  justify-content: center;
+}
+
+.house {
+  display: flex;
+  border-bottom: solid 1px;
+  border-left: solid 1px;
+}
+
+.house-detail {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  text-align: center;
+  border-right: solid 1px;
+  padding: 0px 10px;
+}
+
+.house-name {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  text-align: center;
+  border-right: solid 1px;
+  padding: 0px 10px;
+}
+
+.house-auctioned {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  text-align: center;
+  border-right: solid 1px;
+  padding: 0px 31px;
+}
+
+.auction-status-header {
+  width: 300px;
+  height: 37px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-right: solid 1px;
+  padding: 0px 31px;
+}
+
+.auction-status-child {
+  width: 100px;
+  height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-right: solid 1px;
+  border-top: solid 1px;
+  padding: 0px 10px;
+}
+
+.table-header {
+  border: solid 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
