@@ -30,8 +30,8 @@ export const Houses = () => {
   ]);
   const [selectedWorld, setSelectedWorld] = useState<string>("");
   const [selectedTown, setSelectedTown] = useState<string>("");
-  const [houses, setHouses] = useState<Data[]>();
-  const [guildhalls, setGuildhalls] = useState<Data[]>();
+  const [houses, setHouses] = useState<Data[] | null>(null);
+  const [guildhalls, setGuildhalls] = useState<Data[] | null>(null);
 
   const fetchHouses = () => {
     setIsFetched(false);
@@ -132,7 +132,7 @@ export const Houses = () => {
             </div>
             : <></>}
         </div>
-        {isFetched && houses !== null && guildhalls !== null ?
+        {isFetched && houses || guildhalls ?
           <>
             <a href="#guildhallskip"><span id="houseskip" className="gold-hover">Skip to guildhalls</span></a>
             {houses ?
@@ -183,7 +183,11 @@ export const Houses = () => {
           </>
           :
           <>
-            No house/guildhall information for selected world/town combination
+            {isFetched && !houses && !guildhalls ?
+              <>
+                No house/guildhall information for selected world/town combination
+              </> : <></>}
+
           </>}
       </div>
     </>
