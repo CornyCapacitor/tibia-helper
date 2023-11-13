@@ -110,7 +110,7 @@ export const Houses = () => {
       <img className="background-image" src="https://wallpapercave.com/wp/wp7219204.jpg" />
       <Navbar />
       <div className="houses-page">
-        <span>Fill the textboxes with world and town name, and press search button to search houses in that town</span>
+        <span>Select below both world and town names, and press search button to search houses in that town</span>
         <div className="houses-search">
           <div className="flexrow">
             <select className="select-bar" value={selectedWorld} onChange={(e) => setSelectedWorld(e.target.value)}>
