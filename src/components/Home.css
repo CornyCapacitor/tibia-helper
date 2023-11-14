@@ -24,8 +24,16 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 40px 0px;
+  padding: 40px 10px;
   gap: 20px;
+
+  @media (max-width: 1024px) {
+    padding: 40px 20px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 40px;
+  }
 }
 
 .about-header {
@@ -55,9 +63,20 @@
 }
 
 .section-image {
+  position: relative;
   width: 100%;
   height: 300px;
   object-fit: cover;
+
+  @media (max-width: 1024px) {
+    width: 200%;
+    transform: translateX(-20%);
+  }
+
+  @media (max-width: 768px) {
+    width: 300%;
+    transform: translate(-30%);
+  }
 }
 
 .right-section-header {
@@ -71,6 +90,18 @@
   font-size: 40px;
   font-family: Poppins, sans-serif;
   border-radius: 10px;
+
+  @media (max-width: 1024px) {
+    font-size: 30px;
+    padding: 7px 18px;
+    top: 30%;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    padding: 5px 15px;
+    top: 30%;
+  }
 }
 
 .left-section-header {
@@ -84,6 +115,18 @@
   font-size: 40px;
   font-family: Poppins, sans-serif;
   border-radius: 10px;
+
+  @media (max-width: 1024px) {
+    font-size: 30px;
+    padding: 7px 18px;
+    top: 30%;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    padding: 5px 15px;
+    top: 30%;
+  }
 }
 
 .right-section-description {
@@ -98,6 +141,20 @@
   font-size: 20px;
   font-family: Poppins, sans-serif;
   border-radius: 10px;
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+    padding: 7px 18px;
+    width: 200px;
+    top: 52%;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 5px 15px;
+    width: 170px;
+    top: 45%;
+  }
 }
 
 .left-section-description {
@@ -112,6 +169,20 @@
   font-size: 20px;
   font-family: Poppins, sans-serif;
   border-radius: 10px;
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+    padding: 7px 18px;
+    width: 200px;
+    top: 52%;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 5px 15px;
+    width: 170px;
+    top: 45%;
+  }
 }
 
 .gold {
