@@ -45,7 +45,7 @@ export const Creatures = () => {
       <div className="creature" key={boostedCreature?.race}>
         <div className="centered">
           <div className="creature-detail-header">Name:</div>
-          <div className="creature-detail">{boostedCreature?.name}</div>
+          <div className="creature-detail"><Link className="gold-hover" to={'/creatures/' + boostedCreature?.race}>{boostedCreature?.name}</Link></div>
         </div>
         <img className="creature-image" src={boostedCreature?.image_url} />
       </div>

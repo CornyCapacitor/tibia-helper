@@ -47,13 +47,13 @@
 }
 
 .search-bar {
-  width: 250px;
+  width: 240px;
   outline: none;
   border-radius: 10px;
   border: solid 2px;
   border-color: #DAA520;
   outline-color: #DAA520;
-  background-color: lightgray;
+  padding-left: 10px;
 
   &:hover {
     filter: brightness(90%);

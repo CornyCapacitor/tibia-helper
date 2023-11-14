@@ -282,7 +282,7 @@ export const Worlds = () => {
               </div>
               :
               <div className="general-data">
-                <span className="loading">Loading general data...</span>
+                <span className="loading">Loading worlds...</span>
               </div>}
             <div className="world">
               <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("name")}>Name:</span></div>
@@ -299,10 +299,7 @@ export const Worlds = () => {
             </div>
             {isFetched ?
               renderWorldList(worldsData ?? [])
-              :
-              <div>
-                <span className="loading">Loading worlds...</span>
-              </div>}
+              : <></>}
           </div>
           <button onClick={fetchWorlds} className="refresh">Refresh</button>
         </div>

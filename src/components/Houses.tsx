@@ -187,7 +187,6 @@ export const Houses = () => {
               <>
                 No house/guildhall information for selected world/town combination
               </> : <></>}
-
           </>}
       </div>
     </>

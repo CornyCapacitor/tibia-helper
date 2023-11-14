@@ -3,10 +3,31 @@ import { Link, useParams } from "react-router-dom"
 import './Creature.css'
 import { Navbar } from "./Navbar"
 
+type Creature = {
+  be_convinced: boolean,
+  be_paralysed: boolean,
+  be_summoned: boolean,
+  summoned_mana: number,
+  behaviour: string,
+  convinced_mana: number,
+  description: string,
+  experience_points: number,
+  hitpoints: number,
+  image_url: string,
+  is_lootable: boolean,
+  loot_list?: string[],
+  name: string,
+  race: string,
+  see_invisible: boolean,
+  immune?: string[],
+  strong?: string[],
+  weakness?: string[],
+}
+
 export const Creature = () => {
   const { race } = useParams()
   const [isFetched, setIsFetched] = useState<boolean>(false);
-  const [creature, setCreature] = useState<any>();
+  const [creature, setCreature] = useState<Creature>();
   const [showDescription, setShowDescription] = useState<boolean>(false);
   const [showBehaviour, setShowBehaviour] = useState<boolean>(false);
   const [exphpRatio, setExphpRatio] = useState<number>(0);
@@ -23,9 +44,8 @@ export const Creature = () => {
       })
       .then((data) => {
         setIsFetched(true);
-        console.log(data.creature)
         setCreature(data.creature)
-        console.log()
+        console.log(data.creature)
         setExphpRatio(data.creature.experience_points / data.creature.hitpoints)
       })
       .catch((error) => {
@@ -34,14 +54,14 @@ export const Creature = () => {
       });
   }
 
-  useEffect(fetchCreature, [])
+  useEffect(fetchCreature, [race])
 
   return (
     <>
       <img className="background-image" src="https://wallpapercave.com/wp/wp7219130.jpg" />
       <Navbar />
       <div className="creature-page">
-        {isFetched ?
+        {isFetched && creature ?
           <>
             <span>Return to <Link to="/creatures" className="gold-hover">creatures</Link></span>
             <div className="creature-container">
@@ -70,7 +90,7 @@ export const Creature = () => {
                 }
               </div>
               <div className="creature-section">
-                <header className="creature-header">Monster properties</header>
+                <header className="creature-header">General properties</header>
                 <div className="creature-info">Hitpoints: {creature.hitpoints}</div>
                 <div className="creature-info">Experience: {creature.experience_points}</div>
                 <span className="ratio">{`( ${exphpRatio.toFixed(1)} exp/hp )`}</span>
@@ -113,19 +133,12 @@ export const Creature = () => {
                 </div>
                 : <></>
               }
-              {creature.be_summoned ?
-                <div className="creature-section">
-                  <header className="creature-header">Summon properties</header>
-                  <div className="creature-info">Mana cost: {creature.summoned_mana}</div>
-                </div>
-                : <></>
-              }
               {creature.is_lootable ?
                 <div className="creature-section">
                   <header className="creature-header">Loot list</header>
                   <ul className="loot-list">
-                    {creature.loot_list.map((item: string) => (
-                      <li>{item},</li>
+                    {creature.loot_list?.map((item: string) => (
+                      <li key={item}>{item},</li>
                     ))}
                   </ul>
                 </div>
