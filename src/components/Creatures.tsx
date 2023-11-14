@@ -71,7 +71,9 @@ export const Creatures = () => {
   }
 
   const scrollTo = () => {
-    const selectedMonster = document.getElementById(selectValue);
+    console.log("Scrolling by selectValue: " + selectValue)
+    const selectedMonster = document.getElementById(selectValue) as HTMLDivElement;
+
     selectedMonster?.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" })
 
     const addingHighlight = () => {
@@ -84,6 +86,7 @@ export const Creatures = () => {
 
     addingHighlight();
     setTimeout(() => removingHighlight(), 2500)
+    setSelectValue("");
   }
 
   return (
@@ -99,13 +102,12 @@ export const Creatures = () => {
             </div>
             <div className="flex help-bar">
               <span className="creatures-section-header">Scroll down or choose one of option below to find desired creature.<br />When found, click it's name to reveal more information</span>
-              <div>
+              <div className="search-container">
                 <select className="select-bar" value={selectValue} onChange={(e) => setSelectValue(e.target.value)}>
                   <option value="" disabled>Choose a creature</option>
                   {renderOptions(creatures ?? [])}
                 </select>
-                {selectValue}
-                <button onClick={() => scrollTo()}>Scroll</button>
+                <button onClick={() => scrollTo()} className="creature-search-button">Find creature!</button>
               </div>
             </div>
             <div className="flex">
