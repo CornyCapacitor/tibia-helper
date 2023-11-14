@@ -8,6 +8,10 @@ nav {
   width: 100%;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 1024px) {
+    height: 140px;
+  }
 }
 
 nav header {
@@ -30,7 +34,18 @@ nav header {
 
 .links {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 30px;
+
+  @media (max-width: 1024px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    gap: 5px;
+  }
 }
 
 .link {

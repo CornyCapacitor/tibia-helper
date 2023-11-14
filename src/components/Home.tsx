@@ -10,10 +10,8 @@ export const Home = () => {
       <div className="home-page">
         <div className="about">
           <header className="about-header">Welcome to Tibia helper!</header>
-          <p>Tibia helper is a fan-made project to allow users filter and scan some in-game information within just a few clicks on this website.
-            <br />
-            It is designed to be used with ease on every device, so it's accessible literally everywhere without any troubles.
-          </p>
+          <p>Tibia helper is a fan-made project to allow users filter and scan some in-game information within just a few clicks on this website.</p>
+          <p>It is designed to be used with ease on every device, so it's accessible literally everywhere without any troubles.</p>
         </div>
         <div className="home-right-section">
           <img className="section-image" src="https://nextcloud.cipsoft.com/index.php/apps/files_sharing/publicpreview/JQfrYtjAAm2rEN7?file=/Artworks/Tibia_Artwork_ClientSummer2021.jpg&fileId=83676&x=1920&y=1080&a=true" />
