@@ -44,6 +44,8 @@
 }
 
 .scrollable {
+  padding-top: 75px;
+
   @media (max-width: 1600px) {
     width: 90vw;
     max-height: 500px;
@@ -63,19 +65,28 @@
   flex-direction: column;
 }
 
+.table-headers {
+  display: flex;
+  width: 100%;
+  /* position: absolute; */
+  margin-top: -75px;
+  background-color: #242424;
+}
+
 .world {
   display: flex;
   width: 100%;
   flex-shrink: 0;
 }
 
-.world-component {
+.world-component,
+.wider-world-component {
   width: 100px;
   display: flex;
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  height: 75px;
+  height: 73px;
   text-align: center;
   padding: 0px 9px;
   border: solid 1px;
@@ -83,14 +94,6 @@
 
 .wider-world-component {
   width: 180px;
-  display: flex;
-  flex-shrink: 0;
-  justify-content: center;
-  align-items: center;
-  height: 75px;
-  padding: 0px 9px;
-  text-align: center;
-  border: solid 1px;
 }
 
 .refresh {
