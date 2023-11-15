@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Footer } from './Footer'
 import './Home.css'
 import { Navbar } from './Navbar'
 
@@ -56,6 +57,7 @@ export const Home = () => {
           <span className="left-section-description">Gain knowledge about monsters to hunt them even more effectively!</span>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

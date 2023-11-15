@@ -1,0 +1,39 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  height: 200px;
+  background-color: #242424;
+  border-top: solid 1px black;
+}
+
+.icons {
+  display: flex;
+  gap: 40px;
+}
+
+.icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  background-color: white;
+  border: solid 3px;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 0.3s;
+  }
+}
+
+.gold {
+  color: #DAA520;
+}
+
+.hover {
+  &:hover {
+    cursor: pointer;
+  }
+}
