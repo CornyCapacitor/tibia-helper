@@ -54,10 +54,10 @@
   text-align: center;
 
   @media (max-width: 768px) {
-    width: 30px;
+    width: 25px;
     padding: 0px 5px;
-    height: 40px;
-    font-size: 7px;
+    height: 30px;
+    font-size: 6px;
   }
 }
 
@@ -76,10 +76,10 @@
   text-align: center;
 
   @media (max-width: 768px) {
-    width: 30px;
+    width: 25px;
     padding: 0px 5px;
-    height: 40px;
-    font-size: 7px;
+    height: 30px;
+    font-size: 6px;
   }
 }
 
@@ -94,10 +94,10 @@
   text-align: center;
 
   @media (max-width: 768px) {
-    width: 30px;
+    width: 25px;
     padding: 0px 5px;
-    height: 40px;
-    font-size: 7px;
+    height: 30px;
+    font-size: 6px;
   }
 }
 
@@ -113,10 +113,10 @@
   text-align: center;
 
   @media (max-width: 768px) {
-    width: 40px;
+    width: 30px;
     padding: 0px 5px;
-    height: 40px;
-    font-size: 7px;
+    height: 30px;
+    font-size: 6px;
   }
 }
 
@@ -132,9 +132,10 @@
   text-align: center;
 
   @media (max-width: 768px) {
-    width: 18px;
-    height: 40px;
-    font-size: 7px;
+    width: 30px;
+    padding: 0px 5px;
+    height: 30px;
+    font-size: 6px;
   }
 }
 
