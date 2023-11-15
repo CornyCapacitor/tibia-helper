@@ -51,8 +51,7 @@
     max-height: 500px;
     max-width: 100%;
     overflow-x: auto;
-    border-left: solid 1px;
-    border-top: solid 1px;
+    border: solid 1px;
   }
 
   @media (min-width: 1601px) {
