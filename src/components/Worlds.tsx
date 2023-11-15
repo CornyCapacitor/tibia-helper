@@ -273,19 +273,18 @@ export const Worlds = () => {
       <Navbar />
       <div className="worlds-page">
         <div className="worlds-page-display">
+          {isFetched ?
+            <div className="general-data">
+              <div>Total players online: <span className="highlight-data">{generalData?.players_online}</span></div>
+              <div>Record players recorded at: <span className="highlight-data">{generalData?.record_date.substring(0, 10)}</span></div>
+              <div>Record players online: <span className="highlight-data">{generalData?.record_players}</span></div>
+            </div>
+            :
+            <div className="general-data">
+              <span className="loading">Loading worlds...</span>
+            </div>}
+          <button onClick={fetchWorlds} className="refresh">Refresh</button>
           <div className="worlds-table">
-            <div></div>
-            {isFetched ?
-              <div className="general-data">
-                <div>Total players online: <span className="highlight-data">{generalData?.players_online}</span></div>
-                <div>Record players recorded at: <span className="highlight-data">{generalData?.record_date.substring(0, 10)}</span></div>
-                <div>Record players online: <span className="highlight-data">{generalData?.record_players}</span></div>
-              </div>
-              :
-              <div className="general-data">
-                <span className="loading">Loading worlds...</span>
-              </div>}
-            <button onClick={fetchWorlds} className="refresh">Refresh</button>
             <div className="world">
               <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("name")}>Name:</span></div>
               <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("status")}>Status:</span></div>

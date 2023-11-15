@@ -15,14 +15,16 @@
   flex-direction: column;
   background-color: #242424;
   margin-top: 550px;
-  min-height: 400px;
+  margin-bottom: 150px;
   max-width: 100%;
   box-shadow: 0px -20px 20px 5px #242424;
 }
 
 .worlds-page-display {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .worlds-table {
@@ -30,8 +32,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
   border-bottom: solid 1px;
 }
 
@@ -52,13 +52,6 @@
   border-right: solid 1px;
   padding: 0px 10px;
   text-align: center;
-
-  @media (max-width: 768px) {
-    width: 25px;
-    padding: 0px 5px;
-    height: 30px;
-    font-size: 6px;
-  }
 }
 
 .wordbreak {
@@ -74,13 +67,6 @@
   border-right: solid 1px;
   padding: 0px 10px;
   text-align: center;
-
-  @media (max-width: 768px) {
-    width: 25px;
-    padding: 0px 5px;
-    height: 30px;
-    font-size: 6px;
-  }
 }
 
 .world-pvp-type {
@@ -92,13 +78,6 @@
   border-right: solid 1px;
   padding: 0px 10px;
   text-align: center;
-
-  @media (max-width: 768px) {
-    width: 25px;
-    padding: 0px 5px;
-    height: 30px;
-    font-size: 6px;
-  }
 }
 
 .world-tournament-type {
@@ -111,13 +90,6 @@
   border-right: solid 1px;
   padding: 0px 10px;
   text-align: center;
-
-  @media (max-width: 768px) {
-    width: 30px;
-    padding: 0px 5px;
-    height: 30px;
-    font-size: 6px;
-  }
 }
 
 .world-premium-only {
@@ -130,13 +102,6 @@
   border-right: solid 1px;
   padding: 0px 10px;
   text-align: center;
-
-  @media (max-width: 768px) {
-    width: 30px;
-    padding: 0px 5px;
-    height: 30px;
-    font-size: 6px;
-  }
 }
 
 .refresh {
@@ -158,16 +123,6 @@
     cursor: pointer;
     box-shadow: 0px 0px 15px #DAA520;
   }
-
-  @media (max-width: 1024px) {
-    margin: 0;
-    position: static;
-    align-self: center;
-    margin-bottom: 15px;
-    font-size: 12px;
-    width: 75px;
-    height: 30px;
-  }
 }
 
 .loading {
@@ -176,15 +131,14 @@
 
 .general-data {
   display: flex;
+  align-items: center;
   gap: 40px;
-  margin-bottom: 10px;
-  margin-top: -10px;
+  padding-top: 5px;
+  padding-bottom: 15px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     flex-direction: column;
-    align-items: center;
     gap: 10px;
-    font-size: 12px;
   }
 }
 
