@@ -284,23 +284,25 @@ export const Worlds = () => {
               <span className="loading">Loading worlds...</span>
             </div>}
           <button onClick={fetchWorlds} className="refresh">Refresh</button>
-          <div className="worlds-table">
-            <div className="world">
-              <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("name")}>Name:</span></div>
-              <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("status")}>Status:</span></div>
-              <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("players_online")}>Players online:</span></div>
-              <div className="world-location"><span className="clickable-header" onClick={() => sortListBy("location")}>Location:</span></div>
-              <div className="world-pvp-type"><span className="clickable-header" onClick={() => sortListBy("pvp_type")}>Pvp type:</span></div>
-              <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("premium_only")}>Premium only:</span></div>
-              <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("transfer_type")}>Transfer type:</span></div>
-              <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("battleye_protected")}>Battleye protected:</span></div>
-              <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("battleye_date")}>Battleye date:</span></div>
-              <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("game_world_type")}>Game world type:</span></div>
-              <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("tournamend_world_type")}>Tournament world type:</span></div>
+          <div className="scrollable">
+            <div className="worlds-table">
+              <div className="world">
+                <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("name")}>Name:</span></div>
+                <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("status")}>Status:</span></div>
+                <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("players_online")}>Players online:</span></div>
+                <div className="world-location"><span className="clickable-header" onClick={() => sortListBy("location")}>Location:</span></div>
+                <div className="world-pvp-type"><span className="clickable-header" onClick={() => sortListBy("pvp_type")}>Pvp type:</span></div>
+                <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("premium_only")}>Premium only:</span></div>
+                <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("transfer_type")}>Transfer type:</span></div>
+                <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("battleye_protected")}>Battleye protected:</span></div>
+                <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("battleye_date")}>Battleye date:</span></div>
+                <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("game_world_type")}>Game world type:</span></div>
+                <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("tournamend_world_type")}>Tournament world type:</span></div>
+              </div>
+              {isFetched ?
+                renderWorldList(worldsData ?? [])
+                : <></>}
             </div>
-            {isFetched ?
-              renderWorldList(worldsData ?? [])
-              : <></>}
           </div>
         </div>
       </div>

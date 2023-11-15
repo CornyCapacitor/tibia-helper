@@ -40,6 +40,12 @@
   }
 }
 
+.scrollable {
+  /* overflow: auto;
+  width: 90vw;
+  max-height: 400px; */
+}
+
 .worlds-table {
   display: flex;
   width: 100%;
