@@ -99,9 +99,9 @@
 }
 
 .refresh {
-  margin-bottom: -40px;
-  margin-right: -110px;
-  align-self: flex-end;
+  align-self: center;
+  margin-bottom: 25px;
+  margin-right: 0;
   width: 100px;
   height: 40px;
   font-size: 16px;
