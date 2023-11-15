@@ -82,8 +82,8 @@ export const Worlds = () => {
         <div className="world-component">{name}</div>
         <div className="world-component">{status}</div>
         <div className="world-component">{players_online}</div>
-        <div className="world-location">{location}</div>
-        <div className="world-pvp-type">{pvp_type}</div>
+        <div className="wider-world-component">{location}</div>
+        <div className="wider-world-component">{pvp_type}</div>
         <div className="world-component">{premium_only ? <span style={{ color: "#3dff3d" }}>&#10003;</span> : <span style={{ color: "#ff3838" }}>&#10007;</span>}</div>
         <div className="world-component">{transfer_type}</div>
         <div className="world-component">{battleye_protected ? <span style={{ color: "#3dff3d" }}>&#10003;</span> : <span style={{ color: "#ff3838" }}>&#10007;</span>}</div>
@@ -290,8 +290,8 @@ export const Worlds = () => {
                 <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("name")}>Name:</span></div>
                 <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("status")}>Status:</span></div>
                 <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("players_online")}>Players online:</span></div>
-                <div className="world-location"><span className="clickable-header" onClick={() => sortListBy("location")}>Location:</span></div>
-                <div className="world-pvp-type"><span className="clickable-header" onClick={() => sortListBy("pvp_type")}>Pvp type:</span></div>
+                <div className="wider-world-component"><span className="clickable-header" onClick={() => sortListBy("location")}>Location:</span></div>
+                <div className="wider-world-component"><span className="clickable-header" onClick={() => sortListBy("pvp_type")}>Pvp type:</span></div>
                 <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("premium_only")}>Premium only:</span></div>
                 <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("transfer_type")}>Transfer type:</span></div>
                 <div className="world-component"><span className="clickable-header" onClick={() => sortListBy("battleye_protected")}>Battleye protected:</span></div>

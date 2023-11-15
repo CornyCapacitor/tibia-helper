@@ -10,14 +10,17 @@
 .worlds-page {
   display: flex;
   position: relative;
-  justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
   background-color: #242424;
   margin-top: 550px;
-  margin-bottom: 150px;
+  margin-bottom: 20px;
   max-width: 100%;
   box-shadow: 0px -20px 20px 5px #242424;
+
+  @media (max-width: 1600px) {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .worlds-page-display {
@@ -34,68 +37,60 @@
   padding-top: 5px;
   padding-bottom: 15px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     flex-direction: column;
     gap: 10px;
   }
 }
 
 .scrollable {
-  /* overflow: auto;
-  width: 90vw;
-  max-height: 400px; */
+  @media (max-width: 1600px) {
+    width: 90vw;
+    max-height: 500px;
+    max-width: 100%;
+    overflow-x: auto;
+    border-left: solid 1px;
+    border-top: solid 1px;
+  }
+
+  @media (min-width: 1601px) {
+    border: solid 1px;
+  }
 }
 
 .worlds-table {
-  display: flex;
   width: 100%;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-bottom: solid 1px;
-  overflow-x: auto;
 }
 
 .world {
   display: flex;
-  flex-direction: row;
-  border-left: solid 1px;
-  border-top: solid 1px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .world-component {
   width: 100px;
   display: flex;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center;
   height: 75px;
   text-align: center;
-  border-right: solid 1px;
-  padding: 0px 10px;
-  text-align: center;
+  padding: 0px 9px;
+  border: solid 1px;
 }
 
-
-.world-location {
+.wider-world-component {
   width: 180px;
   display: flex;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center;
   height: 75px;
-  border-right: solid 1px;
-  padding: 0px 10px;
+  padding: 0px 9px;
   text-align: center;
-}
-
-.world-pvp-type {
-  width: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 75px;
-  border-right: solid 1px;
-  padding: 0px 10px;
-  text-align: center;
+  border: solid 1px;
 }
 
 .refresh {
