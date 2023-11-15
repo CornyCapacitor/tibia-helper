@@ -15,16 +15,14 @@
   flex-direction: column;
   background-color: #242424;
   margin-top: 550px;
-  height: 400px;
+  min-height: 400px;
+  max-width: 100%;
   box-shadow: 0px -20px 20px 5px #242424;
 }
 
 .worlds-page-display {
   display: flex;
   gap: 20px;
-
-  /* refresh button  */
-  margin-left: 120px;
 }
 
 .worlds-table {
@@ -53,6 +51,18 @@
   text-align: center;
   border-right: solid 1px;
   padding: 0px 10px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    width: 30px;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 7px;
+  }
+}
+
+.wordbreak {
+  word-break: break-all;
 }
 
 .world-location {
@@ -63,6 +73,14 @@
   height: 75px;
   border-right: solid 1px;
   padding: 0px 10px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    width: 30px;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 7px;
+  }
 }
 
 .world-pvp-type {
@@ -73,14 +91,60 @@
   height: 75px;
   border-right: solid 1px;
   padding: 0px 10px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    width: 30px;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 7px;
+  }
+}
+
+.world-tournament-type {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  text-align: center;
+  border-right: solid 1px;
+  padding: 0px 10px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    width: 40px;
+    padding: 0px 5px;
+    height: 40px;
+    font-size: 7px;
+  }
+}
+
+.world-premium-only {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  text-align: center;
+  border-right: solid 1px;
+  padding: 0px 10px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    width: 18px;
+    height: 40px;
+    font-size: 7px;
+  }
 }
 
 .refresh {
-  align-self: flex-start;
+  margin-bottom: -40px;
+  margin-right: -110px;
+  align-self: flex-end;
   width: 100px;
   height: 40px;
   font-size: 16px;
-  margin-top: 30px;
   border-radius: 10px;
   border: none;
   background-color: #DAA520;
@@ -93,6 +157,16 @@
     cursor: pointer;
     box-shadow: 0px 0px 15px #DAA520;
   }
+
+  @media (max-width: 1024px) {
+    margin: 0;
+    position: static;
+    align-self: center;
+    margin-bottom: 15px;
+    font-size: 12px;
+    width: 75px;
+    height: 30px;
+  }
 }
 
 .loading {
@@ -102,8 +176,15 @@
 .general-data {
   display: flex;
   gap: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-top: -10px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+  }
 }
 
 .highlight-data {
