@@ -9,8 +9,16 @@ nav {
   display: flex;
   justify-content: center;
 
+  @media (max-width: 768px) {
+    height: 150px;
+  }
+
   @media (max-width: 425px) {
     height: 150px;
+  }
+
+  @media (max-width: 350px) {
+    height: 175px;
   }
 }
 
@@ -40,14 +48,13 @@ nav header {
   gap: 30px;
 
 
-  @media (max-width: 768px) {
-    gap: 10px;
+  @media (max-width: 1024px) {
+    gap: 15px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 425px) {
     gap: 5px;
   }
-
 }
 
 .link {
