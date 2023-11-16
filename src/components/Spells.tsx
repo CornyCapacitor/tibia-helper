@@ -268,23 +268,25 @@ export const Spells = () => {
             <span>
               Click spell name for more information
             </span>
-            <div className="spell-list">
-              <div className="spell">
-                <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("name")}>Name:</span></div>
-                <div className="spell-detail-id"><span className="gold-hover" onClick={() => sortListBy("name")}>Spell id:</span></div>
-                <div className="spell-detail">Spell image:</div>
-                <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("formula")}>Formula:</span></div>
-                <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("level")}>Level required:</span></div>
-                <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("mana")}>Mana required:</span></div>
-                <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("price")}>Price:</span></div>
-                <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("group_attack")}>Attack spell:</span></div>
-                <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("group_healing")}>Healing spell:</span></div>
-                <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("group_support")}>Support spell:</span></div>
-                <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("type_instant")}>Instant spell:</span></div>
-                <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("type_rune")}>Rune:</span></div>
-                <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("premium_only")}>Premium only:</span></div>
+            <div className="spells-scrollable">
+              <div className="spell-list">
+                <div className="spell">
+                  <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("name")}>Name:</span></div>
+                  <div className="spell-detail-id"><span className="gold-hover" onClick={() => sortListBy("name")}>Spell id:</span></div>
+                  <div className="spell-detail">Spell image:</div>
+                  <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("formula")}>Formula:</span></div>
+                  <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("level")}>Level required:</span></div>
+                  <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("mana")}>Mana required:</span></div>
+                  <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("price")}>Price:</span></div>
+                  <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("group_attack")}>Attack spell:</span></div>
+                  <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("group_healing")}>Healing spell:</span></div>
+                  <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("group_support")}>Support spell:</span></div>
+                  <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("type_instant")}>Instant spell:</span></div>
+                  <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("type_rune")}>Rune:</span></div>
+                  <div className="spell-detail"><span className="gold-hover" onClick={() => sortListBy("premium_only")}>Premium only:</span></div>
+                </div>
+                {renderSpells(spells ?? [])}
               </div>
-              {renderSpells(spells ?? [])}
             </div>
           </>
           :

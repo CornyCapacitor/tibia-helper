@@ -139,22 +139,24 @@ export const Houses = () => {
               <>
                 <div>
                   <header className="table-header">Houses</header>
-                  <div className="house">
-                    <div className="house-name">Name:</div>
-                    <div className="house-detail">House id:</div>
-                    <div className="house-detail">Size:</div>
-                    <div className="house-detail">Rent:</div>
-                    <div className="house-detail">Rented:</div>
-                    <div className="house-auctioned">
-                      <span className="auction-status-header">Auction status:</span>
-                      <div className="flexrownogap">
-                        <div className="auction-status-child">Current bid:</div>
-                        <div className="auction-status-child">Time left:</div>
-                        <div className="auction-status-child">Finished:</div>
+                  <div className="houses-scrollable">
+                    <div className="house">
+                      <div className="house-name">Name:</div>
+                      <div className="house-detail">House id:</div>
+                      <div className="house-detail">Size:</div>
+                      <div className="house-detail">Rent:</div>
+                      <div className="house-detail">Rented:</div>
+                      <div className="house-auctioned">
+                        <span className="auction-status-header">Auction status:</span>
+                        <div className="auction-status-children-container">
+                          <div className="auction-status-child">Current bid:</div>
+                          <div className="auction-status-child">Time left:</div>
+                          <div className="auction-status-child">Finished:</div>
+                        </div>
                       </div>
                     </div>
+                    {renderData(houses ?? [])}
                   </div>
-                  {renderData(houses ?? [])}
                 </div>
               </> : <>No house information for selected world/town combiation</>}
             {guildhalls ?
@@ -162,22 +164,24 @@ export const Houses = () => {
                 <a href="#houseskip"><span id="guildhallskip" className="gold-hover">Skip to houses</span></a>
                 <div>
                   <header className="table-header">Guildhalls</header>
-                  <div className="house">
-                    <div className="house-name">Name:</div>
-                    <div className="house-detail">House id:</div>
-                    <div className="house-detail">Size:</div>
-                    <div className="house-detail">Rent:</div>
-                    <div className="house-detail">Rented:</div>
-                    <div className="house-auctioned">
-                      <span className="auction-status-header">Auction status:</span>
-                      <div className="flexrownogap">
-                        <div className="auction-status-child">Current bid:</div>
-                        <div className="auction-status-child">Time left:</div>
-                        <div className="auction-status-child">Finished:</div>
+                  <div className="houses-scrollable">
+                    <div className="house">
+                      <div className="house-name">Name:</div>
+                      <div className="house-detail">House id:</div>
+                      <div className="house-detail">Size:</div>
+                      <div className="house-detail">Rent:</div>
+                      <div className="house-detail">Rented:</div>
+                      <div className="house-auctioned">
+                        <span className="auction-status-header">Auction status:</span>
+                        <div className="flexrownogap">
+                          <div className="auction-status-child">Current bid:</div>
+                          <div className="auction-status-child">Time left:</div>
+                          <div className="auction-status-child">Finished:</div>
+                        </div>
                       </div>
                     </div>
+                    {guildhalls ? renderData(guildhalls ?? []) : <></>}
                   </div>
-                  {guildhalls ? renderData(guildhalls ?? []) : <></>}
                 </div>
               </> : <>No guildhall information for selected world/town combination</>}
           </>

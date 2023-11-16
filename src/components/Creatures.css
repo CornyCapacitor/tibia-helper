@@ -25,6 +25,11 @@
   flex-direction: column;
   align-items: center;
   width: 300px;
+  text-align: center;
+
+  @media (max-width: 375px) {
+    width: 90%;
+  }
 }
 
 .creatures-table {
@@ -44,6 +49,10 @@
   border: solid 1px;
   padding: 20px;
   transition: 1s;
+
+  @media (max-width: 375px) {
+    width: 95%;
+  }
 }
 
 .creature-image {
@@ -90,6 +99,11 @@
 .search-container {
   display: flex;
   gap: 20px;
+
+  @media (max-width: 375px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .select-bar {
@@ -126,6 +140,10 @@
     transition: 0.2s;
     cursor: pointer;
     box-shadow: 0px 0px 15px #DAA520;
+  }
+
+  @media (max-width: 375px) {
+    align-self: center;
   }
 }
 

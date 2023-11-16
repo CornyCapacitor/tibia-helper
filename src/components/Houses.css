@@ -27,6 +27,19 @@
   gap: 10px;
 }
 
+.houses-scrollable {
+  @media (max-width: 1700px) {
+    width: 85vw;
+    max-height: 500px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  border-top: solid 1px;
+  border-left: solid 1px;
+  border-right: solid 1px;
+}
+
 .search-button {
   align-self: flex-start;
   width: 100px;
@@ -106,10 +119,16 @@
   justify-content: center;
 }
 
+.auction-status-children-container {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  justify-content: center;
+  margin-left: 2px;
+}
+
 .house {
   display: flex;
-  border-bottom: solid 1px;
-  border-left: solid 1px;
 }
 
 .house-detail {
@@ -119,8 +138,10 @@
   align-items: center;
   height: 75px;
   text-align: center;
-  border-right: solid 1px;
   padding: 0px 10px;
+  flex-shrink: 0;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
 }
 
 .house-name {
@@ -130,8 +151,10 @@
   align-items: center;
   height: 75px;
   text-align: center;
-  border-right: solid 1px;
   padding: 0px 10px;
+  flex-shrink: 0;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
 }
 
 .house-auctioned {
@@ -142,8 +165,10 @@
   align-items: center;
   height: 75px;
   text-align: center;
-  border-right: solid 1px;
   padding: 0px 31px;
+  flex-shrink: 0;
+  border-bottom: solid 1px;
+  border-right: solid 1px;
 }
 
 .auction-status-header {
@@ -154,8 +179,11 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-right: solid 1px;
   padding: 0px 31px;
+  flex-shrink: 0;
+  border-bottom: solid 1px;
+  border-right: solid 1px;
+  margin-left: 2px;
 }
 
 .auction-status-child {
@@ -165,14 +193,18 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-right: solid 1px;
-  border-top: solid 1px;
+
   padding: 0px 10px;
+  flex-shrink: 0;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
 }
 
 .table-header {
-  border: solid 1px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-left: solid 1px;
+  border-top: solid 1px;
+  border-right: solid 2px;
 }

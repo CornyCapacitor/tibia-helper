@@ -287,7 +287,7 @@ export const Worlds = () => {
           <div className="heaeder">
 
           </div>
-          <div className="scrollable">
+          <div className="worlds-scrollable">
             <div className="worlds-table">
               <div className="table-headers">
                 <div className="world">
@@ -311,7 +311,6 @@ export const Worlds = () => {
           </div>
         </div>
       </div>
-
     </>
   )
 }
