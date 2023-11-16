@@ -1,107 +1,46 @@
+.auction-status-child {
+  align-items: center;
+  border-bottom: solid 1px;
+  border-right: solid 1px;
+  display: flex;
+  flex-shrink: 0;
+  height: 37px;
+  justify-content: center;
+  padding: 0px 10px;
+  text-align: center;
+  width: 100px;
+}
+
+.auction-status-children-container {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  justify-content: center;
+  margin-left: 2px;
+}
+
+.auction-status-header {
+  align-items: center;
+  border-bottom: solid 1px;
+  border-right: solid 1px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 37px;
+  justify-content: center;
+  margin-left: 2px;
+  padding: 0px 31px;
+  text-align: center;
+  width: 300px;
+}
+
 .background-image {
-  width: 100%;
   height: 800px;
-  overflow: hidden;
   object-fit: cover;
+  overflow: hidden;
   position: absolute;
   top: 0;
-}
-
-.houses-page {
-  display: flex;
-  position: relative;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  background-color: #242424;
-  margin-top: 550px;
-  height: 400px;
-  box-shadow: 0px -20px 20px 5px #242424;
-  z-index: 999;
-  gap: 10px;
-}
-
-.houses-search {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.houses-scrollable {
-  @media (max-width: 1700px) {
-    width: 85vw;
-    max-height: 500px;
-    max-width: 100%;
-    overflow-x: auto;
-  }
-
-  border-top: solid 1px;
-  border-left: solid 1px;
-  border-right: solid 1px;
-}
-
-.search-button {
-  align-self: flex-start;
-  width: 100px;
-  height: 40px;
-  font-size: 16px;
-  border-radius: 10px;
-  border: none;
-  background-color: #DAA520;
-  color: white;
-  font-family: Poppins, sans-serif;
-
-  &:hover {
-    filter: brightness(90%);
-    transition: 0.2s;
-    cursor: pointer;
-    box-shadow: 0px 0px 15px #DAA520;
-  }
-}
-
-.search-bar {
-  width: 240px;
-  outline: none;
-  border-radius: 10px;
-  border: solid 2px;
-  border-color: #DAA520;
-  outline-color: #DAA520;
-  padding-left: 10px;
-
-  &:hover {
-    filter: brightness(90%);
-  }
-
-  &:focus {
-    box-shadow: 0px 0px 15px #DAA520;
-    filter: brightness(90%);
-  }
-}
-
-.select-bar {
-  width: 250px;
-  height: 40px;
-  outline: none;
-  border: solid 2px;
-  border-color: #DAA520;
-  outline-color: #DAA520;
-
-  &:hover {
-    filter: brightness(90%);
-  }
-
-  &:focus {
-    box-shadow: 0px 0px 15px #DAA520;
-    filter: brightness(90%);
-  }
-}
-
-.gold-hover {
-  &:hover {
-    cursor: pointer;
-    color: #DAA520;
-    transition: 0.2s;
-  }
+  width: 100%;
 }
 
 .flexrow {
@@ -119,92 +58,158 @@
   justify-content: center;
 }
 
-.auction-status-children-container {
+.gold-hover {
+  &:hover {
+    color: #DAA520;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+}
+
+.houses-page {
+  align-items: center;
+  background-color: #242424;
+  box-shadow: 0px -20px 20px 5px #242424;
   display: flex;
-  flex-direction: row;
-  height: 40px;
-  justify-content: center;
-  margin-left: 2px;
+  flex-direction: column;
+  gap: 10px;
+  height: 400px;
+  justify-content: flex-start;
+  margin-top: 550px;
+  position: relative;
+  z-index: 999;
+}
+
+.houses-scrollable {
+  @media (max-width: 1700px) {
+    max-height: 500px;
+    max-width: 100%;
+    overflow-x: auto;
+    width: 85vw;
+  }
+
+  border-left: solid 1px;
+  border-right: solid 1px;
+  border-top: solid 1px;
+}
+
+.houses-search {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .house {
   display: flex;
 }
 
-.house-detail {
-  width: 100px;
-  display: flex;
-  justify-content: center;
+.house-auctioned {
   align-items: center;
-  height: 75px;
-  text-align: center;
-  padding: 0px 10px;
-  flex-shrink: 0;
-  border-right: solid 1px;
   border-bottom: solid 1px;
+  border-right: solid 1px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 75px;
+  justify-content: center;
+  padding: 0px 31px;
+  text-align: center;
+  width: 300px;
+}
+
+.house-detail {
+  align-items: center;
+  border-bottom: solid 1px;
+  border-right: solid 1px;
+  display: flex;
+  flex-shrink: 0;
+  height: 75px;
+  justify-content: center;
+  padding: 0px 10px;
+  text-align: center;
+  width: 100px;
 }
 
 .house-name {
+  align-items: center;
+  border-bottom: solid 1px;
+  border-right: solid 1px;
+  display: flex;
+  flex-shrink: 0;
+  height: 75px;
+  justify-content: center;
+  padding: 0px 10px;
+  text-align: center;
   width: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 75px;
-  text-align: center;
-  padding: 0px 10px;
-  flex-shrink: 0;
-  border-right: solid 1px;
-  border-bottom: solid 1px;
 }
 
-.house-auctioned {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 75px;
-  text-align: center;
-  padding: 0px 31px;
-  flex-shrink: 0;
-  border-bottom: solid 1px;
-  border-right: solid 1px;
+.search-bar {
+  border: solid 2px;
+  border-color: #DAA520;
+  border-radius: 10px;
+  filter: brightness(90%);
+
+  &:focus {
+    box-shadow: 0px 0px 15px #DAA520;
+    filter: brightness(90%);
+  }
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  outline: none;
+  outline-color: #DAA520;
+  padding-left: 10px;
+  width: 240px;
 }
 
-.auction-status-header {
-  width: 300px;
-  height: 37px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0px 31px;
-  flex-shrink: 0;
-  border-bottom: solid 1px;
-  border-right: solid 1px;
-  margin-left: 2px;
-}
+.search-button {
+  align-self: flex-start;
+  background-color: #DAA520;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  filter: brightness(90%);
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  height: 40px;
 
-.auction-status-child {
+  &:hover {
+    box-shadow: 0px 0px 15px #DAA520;
+    filter: brightness(90%);
+    transition: 0.2s;
+  }
+
   width: 100px;
-  height: 37px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+}
 
-  padding: 0px 10px;
-  flex-shrink: 0;
-  border-right: solid 1px;
-  border-bottom: solid 1px;
+.select-bar {
+  border: solid 2px;
+  border-color: #DAA520;
+  filter: brightness(90%);
+
+  &:focus {
+    box-shadow: 0px 0px 15px #DAA520;
+    filter: brightness(90%);
+  }
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  height: 40px;
+  outline: none;
+  outline-color: #DAA520;
+  width: 250px;
 }
 
 .table-header {
-  display: flex;
-  justify-content: center;
   align-items: center;
   border-left: solid 1px;
-  border-top: solid 1px;
   border-right: solid 2px;
+  border-top: solid 1px;
+  display: flex;
+  justify-content: center;
 }

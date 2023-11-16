@@ -1,51 +1,27 @@
 .background-image {
-  width: 100%;
   height: 800px;
-  overflow: hidden;
   object-fit: cover;
+  overflow: hidden;
   position: absolute;
   top: 0;
-}
-
-.creature-page {
-  display: flex;
-  position: relative;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  background-color: #242424;
-  margin-top: 550px;
-  height: 400px;
-  box-shadow: 0px -20px 20px 5px #242424;
-  z-index: 999;
+  width: 100%;
 }
 
 .creature-container {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 320px;
   border: 1px solid;
-  padding: 10px 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.creature-section {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px 20px;
   width: 320px;
-  padding: 10px 0px;
-  /* border-bottom: solid 1px; */
 }
 
-.creature-name {
-  font-size: 25px;
+.creature-header {
   color: #DAA520;
-  text-align: center;
+  padding: 5px 0px;
 }
 
 .creature-image {
@@ -55,56 +31,47 @@
 
 .creature-info {
   border-top: 1px solid;
-  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 5px 0px;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
-.creature-header {
-  padding: 5px 0px;
+.creature-name {
   color: #DAA520;
+  font-size: 25px;
+  text-align: center;
 }
 
-.gold-hover {
-  &:hover {
-    cursor: pointer;
-    color: #DAA520;
-    transition: 0.2s;
-  }
-}
-
-.flexcolumn {
+.creature-page {
+  align-items: center;
+  background-color: #242424;
+  box-shadow: 0px -20px 20px 5px #242424;
   display: flex;
   flex-direction: column;
+  height: 400px;
+  justify-content: flex-start;
+  margin-top: 550px;
+  position: relative;
+  z-index: 999;
+}
+
+.creature-section {
   align-items: center;
-}
-
-.gap10 {
-  gap: 10px;
-}
-
-.description-switch {
-  color: #DAA520;
-}
-
-.ratio {
-  font-size: 12px;
-  margin-top: -10px;
-  margin-bottom: 8px;
-}
-
-.margintop10 {
-  margin-top: 10px;
-}
-
-.fire {
-  color: #ff0000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0px;
+  width: 320px;
 }
 
 .death {
   color: #a0a0a0;
+}
+
+.description-switch {
+  color: #DAA520;
 }
 
 .earth {
@@ -115,8 +82,26 @@
   color: #ff00ff;
 }
 
-.physical {
-  color: #af0000;
+.flexcolumn {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.fire {
+  color: #ff0000;
+}
+
+.gap10 {
+  gap: 10px;
+}
+
+.gold-hover {
+  &:hover {
+    color: #DAA520;
+    cursor: pointer;
+    transition: 0.2s;
+  }
 }
 
 .holy {
@@ -125,4 +110,18 @@
 
 .ice {
   color: #27c9ff;
+}
+
+.margintop10 {
+  margin-top: 10px;
+}
+
+.physical {
+  color: #af0000;
+}
+
+.ratio {
+  font-size: 12px;
+  margin-bottom: 8px;
+  margin-top: -10px;
 }

@@ -1,31 +1,12 @@
 footer {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 30px;
-  height: 200px;
   background-color: #242424;
   border-top: solid 1px black;
-}
-
-.icons {
   display: flex;
-  gap: 40px;
-}
-
-.icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 50px;
-  background-color: white;
-  border: solid 3px;
-
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.2);
-    transition: 0.3s;
-  }
+  flex-direction: column;
+  gap: 30px;
+  height: 200px;
+  justify-content: center;
 }
 
 .gold {
@@ -36,4 +17,23 @@ footer {
   &:hover {
     cursor: pointer;
   }
+}
+
+.icon {
+  background-color: white;
+  border: solid 3px;
+  border-radius: 50px;
+  height: 70px;
+  width: 70px;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 0.3s;
+  }
+}
+
+.icons {
+  display: flex;
+  gap: 40px;
 }

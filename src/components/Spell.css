@@ -1,41 +1,41 @@
 .background-image {
-  width: 100%;
   height: 800px;
-  overflow: hidden;
   object-fit: cover;
+  overflow: hidden;
   position: absolute;
   top: 0;
+  width: 100%;
 }
 
-.spell-page {
-  display: flex;
-  position: relative;
-  justify-content: flex-start;
+.flexcolumn {
   align-items: center;
+  display: flex;
   flex-direction: column;
-  background-color: #242424;
-  margin-top: 550px;
-  height: 400px;
-  box-shadow: 0px -20px 20px 5px #242424;
-  z-index: 999;
+}
+
+.gold-hover {
+  &:hover {
+    color: #DAA520;
+    cursor: pointer;
+    transition: 0.2s;
+  }
 }
 
 .spell-container {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 320px;
   border: 1px solid;
-  padding: 20px;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 20px;
+  width: 320px;
 }
 
-.spell-name {
-  font-size: 25px;
+.spell-header {
   color: #DAA520;
-  text-align: center;
+  padding: 5px 0px;
 }
 
 .spell-image {
@@ -44,27 +44,27 @@
 
 .spell-info {
   border-top: 1px solid;
-  width: 100%;
   display: flex;
   justify-content: center;
   padding: 5px 0px;
+  width: 100%;
 }
 
-.spell-header {
-  padding: 5px 0px;
+.spell-name {
   color: #DAA520;
+  font-size: 25px;
+  text-align: center;
 }
 
-.gold-hover {
-  &:hover {
-    cursor: pointer;
-    color: #DAA520;
-    transition: 0.2s;
-  }
-}
-
-.flexcolumn {
+.spell-page {
+  align-items: center;
+  background-color: #242424;
+  box-shadow: 0px -20px 20px 5px #242424;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 400px;
+  justify-content: flex-start;
+  margin-top: 550px;
+  position: relative;
+  z-index: 999;
 }
