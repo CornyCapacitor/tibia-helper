@@ -238,26 +238,28 @@ export const Guilds = () => {
             <>
               <div className="members-info">
                 <header className="members-header">Members:</header>
-                <div className="members-list">
-                  <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("name")}>Name:</span></div>
-                  <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("title")}>Title:</span></div>
-                  <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("rank")}>Rank:</span></div>
-                  <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("vocation")}>Vocation:</span></div>
-                  <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("level")}>Level:</span></div>
-                  <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("joined")}>Joined:</span></div>
-                  <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("status")}>Status:</span></div>
-                </div>
-                {guildData.members?.map(({ name, title, rank, vocation, level, joined, status }: Members) => (
-                  <div className="members-list" key={name}>
-                    <div className="members-detail">{name}</div>
-                    <div className="members-detail">{title ? <>{title}</> : <>No title selected</>}</div>
-                    <div className="members-detail">{rank}</div>
-                    <div className="members-detail">{vocation}</div>
-                    <div className="members-detail">{level}</div>
-                    <div className="members-detail">{joined}</div>
-                    <div className="members-detail">{status === "online" ? <span style={{ color: "#3dff3d" }}>{status}</span> : <span style={{ color: "#ff3838" }}>{status}</span>}</div>
+                <div className="members-scrollable">
+                  <div className="members-list">
+                    <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("name")}>Name:</span></div>
+                    <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("title")}>Title:</span></div>
+                    <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("rank")}>Rank:</span></div>
+                    <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("vocation")}>Vocation:</span></div>
+                    <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("level")}>Level:</span></div>
+                    <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("joined")}>Joined:</span></div>
+                    <div className="members-detail"><span className="gold-hover" onClick={() => sortListBy("status")}>Status:</span></div>
                   </div>
-                ))}
+                  {guildData.members?.map(({ name, title, rank, vocation, level, joined, status }: Members) => (
+                    <div className="members-list" key={name}>
+                      <div className="members-detail">{name}</div>
+                      <div className="members-detail">{title ? <>{title}</> : <>No title selected</>}</div>
+                      <div className="members-detail">{rank}</div>
+                      <div className="members-detail">{vocation}</div>
+                      <div className="members-detail">{level}</div>
+                      <div className="members-detail">{joined}</div>
+                      <div className="members-detail">{status === "online" ? <span style={{ color: "#3dff3d" }}>{status}</span> : <span style={{ color: "#ff3838" }}>{status}</span>}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </>
           </div>

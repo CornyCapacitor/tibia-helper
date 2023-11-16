@@ -43,7 +43,7 @@
   }
 }
 
-.scrollable {
+.worlds-scrollable {
   padding-top: 75px;
 
   @media (max-width: 1600px) {
@@ -67,7 +67,6 @@
 .table-headers {
   display: flex;
   width: 100%;
-  /* position: absolute; */
   margin-top: -75px;
   background-color: #242424;
 }
