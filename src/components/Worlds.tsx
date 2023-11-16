@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactNode, useEffect, useState } from 'react';
+import { Footer } from './Footer';
 import { Navbar } from './Navbar';
 import './Worlds.css';
 
@@ -311,6 +312,7 @@ export const Worlds = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

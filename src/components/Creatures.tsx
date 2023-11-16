@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Creatures.css';
+import { Footer } from './Footer';
 import { Navbar } from "./Navbar";
 
 type Creature = {
@@ -119,6 +120,7 @@ export const Creatures = () => {
           </>
           : <>Loading creatures data</>}
       </div>
+      <Footer />
     </>
   )
 }

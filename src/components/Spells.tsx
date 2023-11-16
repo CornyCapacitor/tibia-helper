@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import './Spells.css';
 
@@ -292,6 +293,7 @@ export const Spells = () => {
           :
           <>Loading spells...</>}
       </div>
+      <Footer />
     </>
   )
 }

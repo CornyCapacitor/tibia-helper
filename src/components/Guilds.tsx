@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Footer } from './Footer';
 import './Guilds.css';
 import { Navbar } from "./Navbar";
 
@@ -266,6 +267,7 @@ export const Guilds = () => {
           :
           <>Example: <span className="gold-hover" onClick={() => setGuildName("Hill")}>Hill</span></>}
       </div >
+      <Footer />
     </>
   )
 }

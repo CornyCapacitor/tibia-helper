@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ReactNode, useState } from 'react';
 import './Characters.css';
+import { Footer } from './Footer';
 import { Navbar } from "./Navbar";
 
 type CharacterData = {
@@ -148,6 +149,7 @@ export const Characters = () => {
           :
           <>Example: <span className="gold-hover" onClick={() => setCharacterName("Mateusz Dragon Wielki")}>Mateusz Dragon Wielki</span></>}
       </div>
+      <Footer />
     </>
   )
 }
