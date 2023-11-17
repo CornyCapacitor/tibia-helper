@@ -10,77 +10,97 @@
 .worlds-page {
   display: flex;
   position: relative;
-  justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
   background-color: #242424;
   margin-top: 550px;
-  height: 400px;
+  margin-bottom: 20px;
+  max-width: 100%;
   box-shadow: 0px -20px 20px 5px #242424;
+
+  @media (max-width: 1600px) {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 .worlds-page-display {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-  /* refresh button  */
-  margin-left: 120px;
+.general-data {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.worlds-scrollable {
+  padding-top: 75px;
+
+  @media (max-width: 1600px) {
+    width: 90vw;
+    max-height: 500px;
+    max-width: 100%;
+    overflow-x: auto;
+    border: solid 1px;
+  }
+
+  @media (min-width: 1601px) {
+    border: solid 1px;
+  }
 }
 
 .worlds-table {
-  display: flex;
+  width: 100%;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border-bottom: solid 1px;
+}
+
+.table-headers {
+  display: flex;
+  width: 100%;
+  margin-top: -75px;
+  background-color: #242424;
 }
 
 .world {
   display: flex;
-  flex-direction: row;
-  border-left: solid 1px;
-  border-top: solid 1px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
-.world-component {
+.world-component,
+.wider-world-component {
   width: 100px;
   display: flex;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  height: 75px;
+  height: 73px;
   text-align: center;
-  border-right: solid 1px;
-  padding: 0px 10px;
+  padding: 0px 9px;
+  border: solid 1px;
 }
 
-.world-location {
+.wider-world-component {
   width: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 75px;
-  border-right: solid 1px;
-  padding: 0px 10px;
-}
-
-.world-pvp-type {
-  width: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 75px;
-  border-right: solid 1px;
-  padding: 0px 10px;
 }
 
 .refresh {
-  align-self: flex-start;
+  align-self: center;
+  margin-bottom: 25px;
+  margin-right: 0;
   width: 100px;
   height: 40px;
   font-size: 16px;
-  margin-top: 30px;
   border-radius: 10px;
   border: none;
   background-color: #DAA520;
@@ -97,13 +117,6 @@
 
 .loading {
   font-size: 20px;
-}
-
-.general-data {
-  display: flex;
-  gap: 40px;
-  margin-bottom: 20px;
-  margin-top: -10px;
 }
 
 .highlight-data {

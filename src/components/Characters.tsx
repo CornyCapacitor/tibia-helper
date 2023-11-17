@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ReactNode, useState } from 'react';
 import './Characters.css';
+import { Footer } from './Footer';
 import { Navbar } from "./Navbar";
 
 type CharacterData = {
@@ -31,15 +32,19 @@ type OtherCharactersData = {
   traded: boolean,
 }
 
+type AccountInformation = {
+  created: string,
+  loyalty_title: string,
+}
+
 type OtherCharactersDataRender = (value: OtherCharactersData[]) => ReactNode;
 
 export const Characters = () => {
   const [isFetched, setIsFetched] = useState<boolean>(false);
   const [characterName, setCharacterName] = useState<string>("");
-  const [generalData, setGeneralData] = useState<any>();
   const [characterData, setCharacterData] = useState<CharacterData>();
   const [otherCharactersData, setOtherCharactersData] = useState<OtherCharactersData[]>();
-  const [accountData, setAccountData] = useState<any>();
+  const [accountData, setAccountData] = useState<AccountInformation>();
 
   // Fetch the data
   const fetchCharacter = () => {
@@ -58,7 +63,7 @@ export const Characters = () => {
       })
       .then((data) => {
         setCharacterName("");
-        setGeneralData(data);
+        console.log(data)
         setCharacterData(data.character.character)
         setOtherCharactersData(data.character.other_characters)
         setAccountData(data.character.account_information)
@@ -128,7 +133,7 @@ export const Characters = () => {
                 </div>
               }
 
-              {isFetched && accountData.created && accountData.loyalty_title ?
+              {isFetched && accountData?.created && accountData?.loyalty_title ?
                 <div className="account-details">
                   <header className="header">Account details:</header>
                   <div>Created at: {accountData.created.substring(0, 10)}</div>
@@ -143,8 +148,8 @@ export const Characters = () => {
           </>
           :
           <>Example: <span className="gold-hover" onClick={() => setCharacterName("Mateusz Dragon Wielki")}>Mateusz Dragon Wielki</span></>}
-        {generalData ? <></> : <></>}
       </div>
+      <Footer />
     </>
   )
 }

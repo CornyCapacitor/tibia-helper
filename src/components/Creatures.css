@@ -15,7 +15,171 @@
   flex-direction: column;
   background-color: #242424;
   margin-top: 550px;
-  height: 400px;
+  min-height: 200px;
+  margin-bottom: 20px;
   box-shadow: 0px -20px 20px 5px #242424;
   z-index: 999;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  text-align: center;
+
+  @media (max-width: 375px) {
+    width: 90%;
+  }
+}
+
+.creatures-table {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.creature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: solid 1px;
+  padding: 20px;
+  transition: 1s;
+
+  @media (max-width: 375px) {
+    width: 95%;
+  }
+}
+
+.creature-image {
+  background-color: #faebd7;
+  border-radius: 10px;
+}
+
+.creature-detail-header {
+  border-bottom: solid 1px;
+  text-align: center;
+  width: 90%;
+}
+
+.creatures-section-header {
+  text-align: center;
+  align-self: center;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.help-bar {
+  gap: 20px;
+}
+
+.highlighted {
+  box-shadow: 0px 0px 20px 15px #DAA520;
+  transition: 1s;
+}
+
+.gold-hover {
+  &:hover {
+    cursor: pointer;
+    color: #DAA520;
+    transition: 0.2s;
+  }
+}
+
+.search-container {
+  display: flex;
+  gap: 20px;
+
+  @media (max-width: 375px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.select-bar {
+  width: 250px;
+  height: 40px;
+  outline: none;
+  border: solid 2px;
+  border-color: #DAA520;
+  outline-color: #DAA520;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 15px #DAA520;
+    filter: brightness(90%);
+  }
+}
+
+.creature-search-button {
+  align-self: flex-start;
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #DAA520;
+  color: white;
+  font-family: Poppins, sans-serif;
+
+  &:hover {
+    filter: brightness(90%);
+    transition: 0.2s;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px #DAA520;
+  }
+
+  @media (max-width: 375px) {
+    align-self: center;
+  }
+}
+
+.creature-textbox {
+  width: 240px;
+  height: 40px;
+  outline: none;
+  border: solid 2px;
+  border-color: #DAA520;
+  outline-color: #DAA520;
+  padding-left: 10px;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 15px #DAA520;
+    filter: brightness(90%);
+  }
+}
+
+.loot-list {
+  border-top: solid 1px;
+  margin-top: -2px;
+  padding-top: 4px;
+  width: 90%;
+}
+
+.creature-description {
+  width: 320px;
+  word-wrap: break-word;
+}
+
+.creature-description a {
+  cursor: pointer;
+  color: #DAA520;
 }

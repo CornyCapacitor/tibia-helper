@@ -3,10 +3,47 @@ import { Link, useParams } from 'react-router-dom'
 import { Navbar } from "./Navbar"
 import './Spell.css'
 
+type Spell = {
+  name: string,
+  image_url: string,
+  spell_id: string,
+  description: string,
+  has_rune_information: boolean,
+  has_spell_information: boolean,
+  rune_information?: {
+    damage_type: string,
+    group_attack: string,
+    group_healing: string,
+    group_support: string,
+    level: number,
+    magic_level: number,
+    vocation: string[],
+  }
+  spell_information?: {
+    amount: number,
+    city: string[],
+    cooldown_alone: number,
+    cooldown_group: number,
+    damage_type: string,
+    formula: string,
+    group_attack: boolean,
+    group_healing: boolean,
+    group_support: boolean,
+    level: number,
+    mana: number,
+    premium_only: boolean,
+    price: number,
+    soul_points: number,
+    type_instant: boolean,
+    type_rune: boolean,
+    vocation: string[],
+  }
+}
+
 export const Spell = () => {
   const { spell_id } = useParams()
   const [isFetched, setIsFetched] = useState<boolean>(false)
-  const [spell, setSpell] = useState<any>();
+  const [spell, setSpell] = useState<Spell>();
 
   const fetchSpell = () => {
     setIsFetched(false);
@@ -29,25 +66,26 @@ export const Spell = () => {
       });
   }
 
-  useEffect(fetchSpell, [])
+  useEffect(fetchSpell, [spell_id])
 
   return (
     <>
       <img className="background-image" src="https://wallpapercave.com/wp/wp7219143.jpg" />
       <Navbar />
       <div className="spell-page">
-        {isFetched ?
+        {isFetched && spell && spell.spell_information && spell.rune_information ?
           <>
             <span>Return to <Link to="/spells" className="gold-hover">spells</Link></span>
             <div className="spell-container">
-              <div className="spell-name">{spell.name}</div>
+              <div className="spell-name">{spell?.name}</div>
               <img className="spell-image" src={`https://static.tibia.com/images/library/${spell_id}.png`} />
 
               <header className="spell-header">Usage properties</header>
 
               <div className="spell-info">Formula: {spell.spell_information.formula}</div>
               {spell.spell_information.damage_type !== "var." && spell.spell_information.damage_type !== "" ?
-                <div className="spell-info">Element: {spell.spell_information.damage_type}</div> : <></>
+                <div className="spell-info">Element:
+                  <span className={spell.spell_information.damage_type}>&nbsp;{spell.spell_information.damage_type}</span></div> : <></>
               }
               <div className="spell-info">Mana: {spell.spell_information.mana}</div>
               <div className="spell-info">Soul points: {spell.spell_information.soul_points}</div>
