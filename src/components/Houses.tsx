@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactNode, useEffect, useState } from 'react';
+import { Footer } from './Footer';
 import './Houses.css';
 import { Navbar } from "./Navbar";
 
@@ -485,6 +486,7 @@ export const Houses = () => {
 
           </>}
       </div>
+      <Footer />
     </>
   )
 }
