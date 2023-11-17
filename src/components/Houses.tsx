@@ -435,22 +435,24 @@ export const Houses = () => {
               <>
                 <div>
                   <header className="table-header">Houses</header>
-                  <div className="house">
-                    <div className="house-name"><span className="clickable-header" onClick={() => sortListBy("house", "name")}>Name:</span></div>
-                    <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("house", "id")}>House id:</span></div>
-                    <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("house", "size")}>Size:</span></div>
-                    <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("house", "rent")}>Rent:</span></div>
-                    <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("house", "rented")}>Rented:</span></div>
-                    <div className="house-auctioned">
-                      <span className="auction-status-header">Auction status:</span>
-                      <div className="flexrownogap">
-                        <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("house", "current_bid")}>Current bid:</span></div>
-                        <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("house", "time_left")}>Time left:</span></div>
-                        <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("house", "finished")}>Finished:</span></div>
+                  <div className="houses-scrollable">
+                    <div className="house">
+                      <div className="house-name"><span className="clickable-header" onClick={() => sortListBy("house", "name")}>Name:</span></div>
+                      <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("house", "id")}>House id:</span></div>
+                      <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("house", "size")}>Size:</span></div>
+                      <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("house", "rent")}>Rent:</span></div>
+                      <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("house", "rented")}>Rented:</span></div>
+                      <div className="house-auctioned">
+                        <span className="auction-status-header">Auction status:</span>
+                        <div className="flexrownogap">
+                          <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("house", "current_bid")}>Current bid:</span></div>
+                          <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("house", "time_left")}>Time left:</span></div>
+                          <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("house", "finished")}>Finished:</span></div>
+                        </div>
                       </div>
                     </div>
+                    {renderData(houses ?? [])}
                   </div>
-                  {renderData(houses ?? [])}
                 </div>
               </> : <>No house information for selected world/town combiation</>}
             {guildhalls ?
@@ -458,22 +460,25 @@ export const Houses = () => {
                 <a href="#houseskip"><span id="guildhallskip" className="gold-hover">Skip to houses</span></a>
                 <div>
                   <header className="table-header">Guildhalls</header>
-                  <div className="house">
-                    <div className="house-name"><span className="clickable-header" onClick={() => sortListBy("guildhall", "name")}>Name:</span></div>
-                    <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("guildhall", "id")}>House id:</span></div>
-                    <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("guildhall", "size")}>Size:</span></div>
-                    <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("guildhall", "rent")}>Rent:</span></div>
-                    <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("guildhall", "rented")}>Rented:</span></div>
-                    <div className="house-auctioned">
-                      <span className="auction-status-header">Auction status:</span>
-                      <div className="flexrownogap">
-                        <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("guildhall", "current_bid")}>Current bid:</span></div>
-                        <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("guildhall", "time_left")}>Time left:</span></div>
-                        <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("guildhall", "finished")}>Finished:</span></div>
+                  <div className="houses-scrollable">
+
+                    <div className="house">
+                      <div className="house-name"><span className="clickable-header" onClick={() => sortListBy("guildhall", "name")}>Name:</span></div>
+                      <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("guildhall", "id")}>House id:</span></div>
+                      <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("guildhall", "size")}>Size:</span></div>
+                      <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("guildhall", "rent")}>Rent:</span></div>
+                      <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("guildhall", "rented")}>Rented:</span></div>
+                      <div className="house-auctioned">
+                        <span className="auction-status-header">Auction status:</span>
+                        <div className="flexrownogap">
+                          <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("guildhall", "current_bid")}>Current bid:</span></div>
+                          <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("guildhall", "time_left")}>Time left:</span></div>
+                          <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("guildhall", "finished")}>Finished:</span></div>
+                        </div>
                       </div>
                     </div>
+                    {guildhalls ? renderData(guildhalls ?? []) : <></>}
                   </div>
-                  {guildhalls ? renderData(guildhalls ?? []) : <></>}
                 </div>
               </> : <>No guildhall information for selected world/town combination</>}
           </>
