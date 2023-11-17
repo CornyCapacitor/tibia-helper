@@ -15,7 +15,8 @@
   flex-direction: column;
   background-color: #242424;
   margin-top: 550px;
-  height: 400px;
+  margin-bottom: 20px;
+  min-height: 200px;
   box-shadow: 0px -20px 20px 5px #242424;
   z-index: 999;
 }
@@ -24,17 +25,26 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .spell {
   display: flex;
   flex-direction: row;
+}
+
+.spells-scrollable {
+  @media (max-width: 1700px) {
+    width: 90vw;
+    max-height: 500px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  margin-top: 10px;
+
   border-top: solid 1px;
   border-left: solid 1px;
-  border-bottom: solid 1px;
+  border-right: solid 1px;
 }
 
 .spell-detail {
@@ -44,8 +54,11 @@
   align-items: center;
   height: 75px;
   text-align: center;
-  border-right: solid 1px;
   padding: 0px 10px;
+  flex-shrink: 0;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
+
 }
 
 .spell-detail-id {
@@ -55,8 +68,10 @@
   align-items: center;
   height: 75px;
   text-align: center;
-  border-right: solid 1px;
   padding: 0px 10px;
+  flex-shrink: 0;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
 }
 
 .gold-hover {
