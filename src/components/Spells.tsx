@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Footer } from "./Footer";
-import { Navbar } from "./Navbar";
 import './Spells.css';
 
 type Spells = {
@@ -261,8 +259,6 @@ export const Spells = () => {
 
   return (
     <>
-      <img className="background-image" src="https://wallpapercave.com/wp/wp7219143.jpg" />
-      <Navbar />
       <div className="spells-page">
         {isFetched && spells ?
           <>
@@ -293,7 +289,6 @@ export const Spells = () => {
           :
           <>Loading spells...</>}
       </div>
-      <Footer />
     </>
   )
 }
