@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactNode, useEffect, useState } from 'react';
 import './Worlds.css';
 
@@ -42,7 +41,6 @@ export const Worlds = () => {
   const [gameWorldTypeSwitch, setGameWorldTypeSwitch] = useState(false);
   const [tournamentWorldTypeSwitch, setTournamentWorldTypeSwitch] = useState(false);
 
-  // Fetch the data
   const fetchWorlds = () => {
     setIsFetched(false);
     fetch("https://dev.tibiadata.com/v4/worlds")
@@ -54,7 +52,6 @@ export const Worlds = () => {
         }
       })
       .then((data) => {
-        // generalData
         const fetchedGeneralData = {
           players_online: data.worlds.players_online,
           record_date: data.worlds.record_date,
@@ -62,7 +59,6 @@ export const Worlds = () => {
         }
         setGeneralData(fetchedGeneralData);
 
-        // worldsData
         const fetchedWorldsData = data.worlds.regular_worlds
         setWorldsData(fetchedWorldsData);
         setIsFetched(true);
@@ -94,177 +90,51 @@ export const Worlds = () => {
   }
 
   const sortListBy = (value: string) => {
-    console.log(`Sorting the table by: ${value}`);
 
-    if (value === "name") {
-      type NameComparision = { name: string }
-      if (nameSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: NameComparision, b: NameComparision) => a.name.localeCompare(b.name);
-        worldsData?.sort(currentSortFunction);
-        setNameSwitch(!nameSwitch)
-        return
-      } else if (nameSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: NameComparision, b: NameComparision) => b.name.localeCompare(a.name);
-        worldsData?.sort(currentSortFunction);
-        setNameSwitch(!nameSwitch)
-        return
-      }
-    } else if (value === "status") {
-      type StatusComparision = { status: string }
-      if (statusSwitch === false) {
-        // Online to Offline
-        const currentSortFunction = (a: StatusComparision, b: StatusComparision) => b.status.localeCompare(a.status)
-        worldsData?.sort(currentSortFunction);
-        setStatusSwitch(!statusSwitch)
-        return
-      } else if (statusSwitch === true) {
-        // Offline to Online
-        const currentSortFunction = (a: StatusComparision, b: StatusComparision) => a.status.localeCompare(b.status)
-        worldsData?.sort(currentSortFunction);
-        setStatusSwitch(!statusSwitch)
-        return
-      }
-    } else if (value === "players_online") {
-      type PlayersComparision = { players_online: number }
-      if (playersOnlineSwitch === false) {
-        // Highest to Lowest
-        const currentSortFunction = (a: PlayersComparision, b: PlayersComparision) => b.players_online - a.players_online;
-        worldsData?.sort(currentSortFunction);
-        setPlayersOnlineSwitch(!playersOnlineSwitch);
-        return
-      } else if (playersOnlineSwitch === true) {
-        // Lowest to Highest
-        const currentSortFunction = (a: PlayersComparision, b: PlayersComparision) => a.players_online - b.players_online;
-        worldsData?.sort(currentSortFunction);
-        setPlayersOnlineSwitch(!playersOnlineSwitch);
-        return
-      }
-    } else if (value === "location") {
-      type LocationComparision = { location: string }
-      if (locationSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: LocationComparision, b: LocationComparision) => a.location.localeCompare(b.location)
-        worldsData?.sort(currentSortFunction);
-        setLocationSwitch(!locationSwitch);
-        return
-      } else if (locationSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: LocationComparision, b: LocationComparision) => b.location.localeCompare(a.location)
-        worldsData?.sort(currentSortFunction);
-        setLocationSwitch(!locationSwitch);
-        return
-      }
-    } else if (value === "pvp_type") {
-      type PvpTypeComparision = { pvp_type: string }
-      if (pvpTypeSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: PvpTypeComparision, b: PvpTypeComparision) => a.pvp_type.localeCompare(b.pvp_type)
-        worldsData?.sort(currentSortFunction);
-        setPvpTypeSwitch(!pvpTypeSwitch);
-        return
-      } else if (pvpTypeSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: PvpTypeComparision, b: PvpTypeComparision) => b.pvp_type.localeCompare(a.pvp_type)
-        worldsData?.sort(currentSortFunction);
-        setPvpTypeSwitch(!pvpTypeSwitch);
-        return
-      }
-    } else if (value === "premium_only") {
-      // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
-      type PremiumComparision = { premium_only: boolean | any }
-      if (premiumOnlySwitch === false) {
-        // True to False
-        const currentSortFunction = (a: PremiumComparision, b: PremiumComparision) => b.premium_only - a.premium_only
-        worldsData?.sort(currentSortFunction);
-        setPremiumOnlySwitch(!premiumOnlySwitch);
-        return
-      } else if (premiumOnlySwitch === true) {
-        // False to True
-        const currentSortFunction = (a: PremiumComparision, b: PremiumComparision) => a.premium_only - b.premium_only
-        worldsData?.sort(currentSortFunction);
-        setPremiumOnlySwitch(!premiumOnlySwitch);
-        return
-      }
-    } else if (value === "transfer_type") {
-      type TransferTypeComparision = { transfer_type: string }
-      if (transferTypeSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: TransferTypeComparision, b: TransferTypeComparision) => a.transfer_type.localeCompare(b.transfer_type)
-        worldsData?.sort(currentSortFunction);
-        setTransferTypeSwitch(!transferTypeSwitch);
-        return
-      } else if (transferTypeSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: TransferTypeComparision, b: TransferTypeComparision) => b.transfer_type.localeCompare(a.transfer_type)
-        worldsData?.sort(currentSortFunction);
-        setTransferTypeSwitch(!transferTypeSwitch);
-        return
-      }
-    } else if (value === "battleye_protected") {
-      // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
-      type BattleyeComparision = { battleye_protected: boolean | any }
-      if (battleyeProtectedSwitch === false) {
-        // True to False
-        const currentSortFunction = (a: BattleyeComparision, b: BattleyeComparision) => a.battleye_protected - b.battleye_protected
-        worldsData?.sort(currentSortFunction);
-        setBattleyeProtectedSwitch(!battleyeProtectedSwitch);
-        return
-      } else if (battleyeProtectedSwitch === true) {
-        // False to True
-        const currentSortFunction = (a: BattleyeComparision, b: BattleyeComparision) => b.battleye_protected - a.battleye_protected
-        worldsData?.sort(currentSortFunction);
-        setBattleyeProtectedSwitch(!battleyeProtectedSwitch);
-        return
-      }
-    } else if (value === "battleye_date") {
-      type BattleyeDateComparision = { battleye_date: string }
-      if (battleyeDateSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: BattleyeDateComparision, b: BattleyeDateComparision) => a.battleye_date.localeCompare(b.battleye_date)
-        worldsData?.sort(currentSortFunction);
-        setBattleyeDateSwitch(!battleyeDateSwitch);
-        return
-      } else if (battleyeDateSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: BattleyeDateComparision, b: BattleyeDateComparision) => b.battleye_date.localeCompare(a.battleye_date)
-        worldsData?.sort(currentSortFunction);
-        setBattleyeDateSwitch(!battleyeDateSwitch);
-        return
-      }
-    } else if (value === "game_world_type") {
-      type WorldTypeComparision = { game_world_type: string }
-      if (gameWorldTypeSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: WorldTypeComparision, b: WorldTypeComparision) => a.game_world_type.localeCompare(b.game_world_type)
-        worldsData?.sort(currentSortFunction);
-        setGameWorldTypeSwitch(!gameWorldTypeSwitch);
-        return
-      } else if (gameWorldTypeSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: WorldTypeComparision, b: WorldTypeComparision) => b.game_world_type.localeCompare(a.game_world_type)
-        worldsData?.sort(currentSortFunction);
-        setGameWorldTypeSwitch(!gameWorldTypeSwitch);
-        return
-      }
-    } else if (value === "tournament_world_type") {
-      type TournamentWorldComparision = { tournament_world_type: boolean | any }
-      if (tournamentWorldTypeSwitch === false) {
-        // True to False
-        const currentSortFunction = (a: TournamentWorldComparision, b: TournamentWorldComparision) => a.tournament_world_type - b.tournament_world_type
-        worldsData?.sort(currentSortFunction);
-        setTournamentWorldTypeSwitch(!tournamentWorldTypeSwitch);
-        return
-      } else if (tournamentWorldTypeSwitch === true) {
-        // False to True
-        const currentSortFunction = (a: TournamentWorldComparision, b: TournamentWorldComparision) => b.tournament_world_type - a.tournament_world_type
-        worldsData?.sort(currentSortFunction);
-        setTournamentWorldTypeSwitch(!tournamentWorldTypeSwitch);
-        return
-      }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const sortSwitch = (switchValue: boolean, sortFunction: (a: any, b: any) => number) => {
+      worldsData?.sort(switchValue ? (a, b) => sortFunction(b, a) : sortFunction);
+      return !switchValue;
+    };
+
+    switch (value) {
+      case "name":
+        setNameSwitch(sortSwitch(nameSwitch, (a, b) => a.name.localeCompare(b.name)));
+        break;
+      case "status":
+        setStatusSwitch(sortSwitch(statusSwitch, (a, b) => b.status.localeCompare(a.status)));
+        break;
+      case "players_online":
+        setPlayersOnlineSwitch(sortSwitch(playersOnlineSwitch, (a, b) => b.players_online - a.players_online));
+        break;
+      case "location":
+        setLocationSwitch(sortSwitch(locationSwitch, (a, b) => a.location.localeCompare(b.location)));
+        break;
+      case "pvp_type":
+        setPvpTypeSwitch(sortSwitch(pvpTypeSwitch, (a, b) => a.pvp_type.localeCompare(b.pvp_type)));
+        break;
+      case "premium_only":
+        setPremiumOnlySwitch(sortSwitch(premiumOnlySwitch, (a, b) => b.premium_only - a.premium_only));
+        break;
+      case "transfer_type":
+        setTransferTypeSwitch(sortSwitch(transferTypeSwitch, (a, b) => a.transfer_type.localeCompare(b.transfer_type)));
+        break;
+      case "battleye_protected":
+        setBattleyeProtectedSwitch(sortSwitch(battleyeProtectedSwitch, (a, b) => a.battleye_protected - b.battleye_protected));
+        break;
+      case "battleye_date":
+        setBattleyeDateSwitch(sortSwitch(battleyeDateSwitch, (a, b) => a.battleye_date.localeCompare(b.battleye_date)));
+        break;
+      case "game_world_type":
+        setGameWorldTypeSwitch(sortSwitch(gameWorldTypeSwitch, (a, b) => a.game_world_type.localeCompare(b.game_world_type)));
+        break;
+      case "tournament_world_type":
+        setTournamentWorldTypeSwitch(sortSwitch(tournamentWorldTypeSwitch, (a, b) => a.tournament_world_type - b.tournament_world_type));
+        break;
+      default:
+        break;
     }
-  }
+  };
 
   return (
     <>
