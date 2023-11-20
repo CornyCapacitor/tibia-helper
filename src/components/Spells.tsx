@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './Spells.css';
@@ -61,181 +60,61 @@ export const Spells = () => {
   useEffect(fetchSpells, []);
 
   const sortListBy = (value: string) => {
-    console.log(`Sorting the table by ${value}`)
+    console.log(`Sorting the table by ${value}`);
 
-    if (value === "name") {
-      type NameComparision = { name: string }
-      if (nameSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: NameComparision, b: NameComparision) => a.name.localeCompare(b.name);
-        spells?.sort(currentSortFunction);
-        setNameSwitch(!nameSwitch)
-        return
-      } else if (nameSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: NameComparision, b: NameComparision) => b.name.localeCompare(a.name);
-        spells?.sort(currentSortFunction);
-        setNameSwitch(!nameSwitch)
-        return
-      }
-    } else if (value === "formula") {
-      type FormulaComparision = { formula: string }
-      if (formulaSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: FormulaComparision, b: FormulaComparision) => a.formula.localeCompare(b.formula);
-        spells?.sort(currentSortFunction);
-        setFormulaSwitch(!formulaSwitch)
-        return
-      } else if (formulaSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: FormulaComparision, b: FormulaComparision) => b.formula.localeCompare(a.formula);
-        spells?.sort(currentSortFunction);
-        setFormulaSwitch(!formulaSwitch)
-        return
-      }
-    } else if (value === "level") {
-      type LevelComparision = { level: number }
-      if (levelSwitch === false) {
-        // Highest to Lowest
-        const currentSortFunction = (a: LevelComparision, b: LevelComparision) => b.level - a.level;
-        spells?.sort(currentSortFunction);
-        setLevelSwitch(!levelSwitch);
-        return
-      } else if (levelSwitch === true) {
-        // Lowest to Highest
-        const currentSortFunction = (a: LevelComparision, b: LevelComparision) => a.level - b.level;
-        spells?.sort(currentSortFunction);
-        setLevelSwitch(!levelSwitch);
-        return
-      }
-    } else if (value === "mana") {
-      type ManaComparision = { mana: number }
-      if (manaSwitch === false) {
-        // Highest to Lowest
-        const currentSortFunction = (a: ManaComparision, b: ManaComparision) => b.mana - a.mana;
-        spells?.sort(currentSortFunction);
-        setManaSwitch(!manaSwitch);
-        return
-      } else if (manaSwitch === true) {
-        // Lowest to Highest
-        const currentSortFunction = (a: ManaComparision, b: ManaComparision) => a.mana - b.mana;
-        spells?.sort(currentSortFunction);
-        setManaSwitch(!manaSwitch);
-        return
-      }
-    } else if (value === "price") {
-      type PriceComparision = { price: number }
-      if (priceSwitch === false) {
-        // Highest to Lowest
-        const currentSortFunction = (a: PriceComparision, b: PriceComparision) => b.price - a.price;
-        spells?.sort(currentSortFunction);
-        setPriceSwitch(!priceSwitch);
-        return
-      } else if (priceSwitch === true) {
-        // Lowest to Highest
-        const currentSortFunction = (a: PriceComparision, b: PriceComparision) => a.price - b.price;
-        spells?.sort(currentSortFunction);
-        setPriceSwitch(!priceSwitch);
-        return
-      }
-    } else if (value === "group_attack") {
-      // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
-      type GroupAttackComparision = { group_attack: boolean | any }
-      if (groupAttackSwitch === false) {
-        // True to false
-        const currentSortFunction = (a: GroupAttackComparision, b: GroupAttackComparision) => b.group_attack - a.group_attack;
-        spells?.sort(currentSortFunction);
-        setGroupAttackSwitch(!groupAttackSwitch);
-        return
-      } else if (groupAttackSwitch === true) {
-        // False to true
-        const currentSortFunction = (a: GroupAttackComparision, b: GroupAttackComparision) => a.group_attack - b.group_attack;
-        spells?.sort(currentSortFunction);
-        setGroupAttackSwitch(!groupAttackSwitch);
-        return
-      }
-    } else if (value === "group_healing") {
-      // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
-      type GroupHealingComparision = { group_healing: boolean | any }
-      if (groupHealingSwitch === false) {
-        // True to false
-        const currentSortFunction = (a: GroupHealingComparision, b: GroupHealingComparision) => b.group_healing - a.group_healing;
-        spells?.sort(currentSortFunction);
-        setGroupHealingSwitch(!groupHealingSwitch);
-        return
-      } else if (groupHealingSwitch === true) {
-        // False to true
-        const currentSortFunction = (a: GroupHealingComparision, b: GroupHealingComparision) => a.group_healing - b.group_healing;
-        spells?.sort(currentSortFunction);
-        setGroupHealingSwitch(!groupHealingSwitch);
-        return
-      }
-    } else if (value === "group_support") {
-      // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
-      type GroupSupportComparision = { group_support: boolean | any }
-      if (groupSupportSwitch === false) {
-        // True to false
-        const currentSortFunction = (a: GroupSupportComparision, b: GroupSupportComparision) => b.group_support - a.group_support;
-        spells?.sort(currentSortFunction);
-        setGroupSupportSwitch(!groupSupportSwitch);
-        return
-      } else if (groupSupportSwitch === true) {
-        // False to true
-        const currentSortFunction = (a: GroupSupportComparision, b: GroupSupportComparision) => a.group_support - b.group_support;
-        spells?.sort(currentSortFunction);
-        setGroupSupportSwitch(!groupSupportSwitch);
-        return
-      }
-    } else if (value === "type_instant") {
-      // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
-      type InstantComparision = { type_instant: boolean | any }
-      if (instantSwitch === false) {
-        // True to false
-        const currentSortFunction = (a: InstantComparision, b: InstantComparision) => b.type_instant - a.type_instant;
-        spells?.sort(currentSortFunction);
-        setInstantSwitch(!instantSwitch);
-        return
-      } else if (instantSwitch === true) {
-        // False to true
-        const currentSortFunction = (a: InstantComparision, b: InstantComparision) => a.type_instant - b.type_instant;
-        spells?.sort(currentSortFunction);
-        setInstantSwitch(!instantSwitch);
-        return
-      }
-    } else if (value === "type_rune") {
-      // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
-      type RuneComparision = { type_rune: boolean | any }
-      if (runeSwitch === false) {
-        // True to false
-        const currentSortFunction = (a: RuneComparision, b: RuneComparision) => b.type_rune - a.type_rune;
-        spells?.sort(currentSortFunction);
-        setRuneSwitch(!runeSwitch);
-        return
-      } else if (runeSwitch === true) {
-        // False to true
-        const currentSortFunction = (a: RuneComparision, b: RuneComparision) => a.type_rune - b.type_rune;
-        spells?.sort(currentSortFunction);
-        setRuneSwitch(!runeSwitch);
-        return
-      }
-    } else if (value === "premium_only") {
-      // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
-      type PremiumOnlyComparision = { premium_only: boolean | any }
-      if (premiumOnlySwitch === false) {
-        // True to false
-        const currentSortFunction = (a: PremiumOnlyComparision, b: PremiumOnlyComparision) => b.premium_only - a.premium_only;
-        spells?.sort(currentSortFunction);
-        setPremiumOnlySwitch(!premiumOnlySwitch);
-        return
-      } else if (premiumOnlySwitch === true) {
-        // False to true
-        const currentSortFunction = (a: PremiumOnlyComparision, b: PremiumOnlyComparision) => a.premium_only - b.premium_only;
-        spells?.sort(currentSortFunction);
-        setPremiumOnlySwitch(!premiumOnlySwitch);
-        return
-      }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const sortSwitch = (switchValue: boolean, key: string, compareFn: (a: any, b: any) => number) => {
+      const sortOrder = switchValue ? -1 : 1;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return (a: any, b: any) => sortOrder * compareFn(a[key], b[key]);
+    };
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const applySorting = (switchValue: boolean, key: string, compareFn: (a: any, b: any) => number, switchSetter: React.Dispatch<React.SetStateAction<boolean>>) => {
+      const sortFunction = sortSwitch(switchValue, key, compareFn);
+      spells?.sort(sortFunction);
+      switchSetter(!switchValue);
+    };
+
+    switch (value) {
+      case "name":
+        applySorting(nameSwitch, "name", (a, b) => String(a).localeCompare(String(b)), setNameSwitch);
+        break;
+      case "formula":
+        applySorting(formulaSwitch, "formula", (a, b) => String(a).localeCompare(String(b)), setFormulaSwitch);
+        break;
+      case "level":
+        applySorting(levelSwitch, "level", (a, b) => a - b, setLevelSwitch);
+        break;
+      case "mana":
+        applySorting(manaSwitch, "mana", (a, b) => a - b, setManaSwitch);
+        break;
+      case "price":
+        applySorting(priceSwitch, "price", (a, b) => a - b, setPriceSwitch);
+        break;
+      case "group_attack":
+        applySorting(groupAttackSwitch, "group_attack", (a, b) => a - b, setGroupAttackSwitch);
+        break;
+      case "group_healing":
+        applySorting(groupHealingSwitch, "group_healing", (a, b) => a - b, setGroupHealingSwitch);
+        break;
+      case "group_support":
+        applySorting(groupSupportSwitch, "group_support", (a, b) => a - b, setGroupSupportSwitch);
+        break;
+      case "type_instant":
+        applySorting(instantSwitch, "type_instant", (a, b) => a - b, setInstantSwitch);
+        break;
+      case "type_rune":
+        applySorting(runeSwitch, "type_rune", (a, b) => a - b, setRuneSwitch);
+        break;
+      case "premium_only":
+        applySorting(premiumOnlySwitch, "premium_only", (a, b) => a - b, setPremiumOnlySwitch);
+        break;
+      default:
+        break;
     }
-  }
+  };
+
 
   const renderSpells: SpellsRender = (value) => {
     return value.map(({ name, spell_id, formula, level, mana, price, group_attack, group_healing, group_support, type_instant, type_rune, premium_only }: Spells) => (
