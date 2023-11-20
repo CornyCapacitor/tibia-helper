@@ -2,8 +2,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ReactNode, useState } from 'react';
 import './Characters.css';
-import { Footer } from './Footer';
-import { Navbar } from "./Navbar";
 
 type CharacterData = {
   name: string,
@@ -87,8 +85,6 @@ export const Characters = () => {
 
   return (
     <>
-      <img className="background-image" src="https://wallpapercave.com/wp/wp7219191.jpg" />
-      <Navbar />
       <div className="character-page">
         <span>Fill the textbox with character name and press search button</span>
         <div className="character-search">
@@ -149,7 +145,6 @@ export const Characters = () => {
           :
           <>Example: <span className="gold-hover" onClick={() => setCharacterName("Mateusz Dragon Wielki")}>Mateusz Dragon Wielki</span></>}
       </div>
-      <Footer />
     </>
   )
 }
