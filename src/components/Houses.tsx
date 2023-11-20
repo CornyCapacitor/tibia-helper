@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactNode, useEffect, useState } from 'react';
-import { Footer } from './Footer';
 import './Houses.css';
-import { Navbar } from "./Navbar";
 
 type Name = string;
 
@@ -403,8 +401,6 @@ export const Houses = () => {
 
   return (
     <>
-      <img className="background-image" src="https://wallpapercave.com/wp/wp7219204.jpg" />
-      <Navbar />
       <div className="houses-page">
         <span>Select below both world and town names, and press search button to search houses in that town</span>
         <div className="houses-search">
@@ -491,7 +487,6 @@ export const Houses = () => {
 
           </>}
       </div>
-      <Footer />
     </>
   )
 }
