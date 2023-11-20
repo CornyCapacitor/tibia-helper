@@ -1,13 +1,9 @@
 import { Link } from 'react-router-dom'
-import { Footer } from './Footer'
 import './Home.css'
-import { Navbar } from './Navbar'
 
 export const Home = () => {
   return (
     <>
-      <img className="background-image" src="https://nextcloud.cipsoft.com/index.php/apps/files_sharing/publicpreview/JQfrYtjAAm2rEN7?file=/Anniversary%20(25%20Years)/Tibia_Artwork_25Years.jpg&fileId=83672&x=1920&y=1080&a=true" />
-      <Navbar />
       <div className="home-page">
         <div className="about">
           <header className="about-header">Welcome to Tibia helper!</header>
@@ -57,7 +53,6 @@ export const Home = () => {
           <span className="left-section-description">Gain knowledge about monsters to hunt them even more effectively!</span>
         </div>
       </div>
-      <Footer />
     </>
   )
 }
