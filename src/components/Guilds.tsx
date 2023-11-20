@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { Footer } from './Footer';
 import './Guilds.css';
-import { Navbar } from "./Navbar";
 
 type Guildhall = {
   name: string,
@@ -194,8 +192,6 @@ export const Guilds = () => {
 
   return (
     <>
-      <img className="background-image" src="https://c.wallhere.com/images/dc/db/bf0f2b38fab4fe5804ce04563ae2-1706939.jpg!d" />
-      <Navbar />
       <div className="guilds-page">
         <span>Fill the textbox with guild name and press search button</span>
         <div className="guild-search">
@@ -267,7 +263,6 @@ export const Guilds = () => {
           :
           <>Example: <span className="gold-hover" onClick={() => setGuildName("Hill")}>Hill</span></>}
       </div >
-      <Footer />
     </>
   )
 }
