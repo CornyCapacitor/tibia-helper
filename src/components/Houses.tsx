@@ -39,6 +39,7 @@ export const Houses = () => {
   const [houseSizeSwitch, setHouseSizeSwitch] = useState<boolean>(false);
   const [houseRentSwitch, setHouseRentSwitch] = useState<boolean>(false);
   const [houseRentedSwitch, setHouseRentedSwitch] = useState<boolean>(false);
+  const [houseAuctionedSwitch, setHouseAuctionedSwitch] = useState<boolean>(false);
   const [houseCurrentBidSwitch, setHouseCurrentBidSwitch] = useState<boolean>(false);
   const [houseTimeLeftSwitch, setHouseTimeLeftSwitch] = useState<boolean>(false);
   const [houseFinishedSwitch, setHouseFinishedSwitch] = useState<boolean>(false);
@@ -48,6 +49,7 @@ export const Houses = () => {
   const [guildhallIdSwitch, setGuildhallIdSwitch] = useState<boolean>(false);
   const [guildhallSizeSwitch, setGuildhallSizeSwitch] = useState<boolean>(false);
   const [guildhallRentSwitch, setGuildhallRentSwitch] = useState<boolean>(false);
+  const [guildhallAuctionedSwitch, setGuildhallAuctionedSwitch] = useState<boolean>(false);
   const [guildhallRentedSwitch, setGuildhallRentedSwitch] = useState<boolean>(false);
   const [guildhallCurrentBidSwitch, setGuildhallCurrentBidSwitch] = useState<boolean>(false);
   const [guildhallTimeLeftSwitch, setGuildhallTimeLeftSwitch] = useState<boolean>(false);
@@ -127,6 +129,7 @@ export const Houses = () => {
 
   const sortListBy = (type: string, value: string) => {
     console.log(value);
+    console.log(houses);
 
     const sortSwitch = (switchValue: boolean, key: string, compareFn: (a: any, b: any) => number, data: any[], switchSetter: React.Dispatch<React.SetStateAction<boolean>>) => {
       const sortOrder = switchValue ? -1 : 1;
@@ -177,6 +180,13 @@ export const Houses = () => {
           applySorting(houseRentedSwitch, "rented", (a, b) => a - b, setHouseRentedSwitch);
         } else if (type === "guildhall") {
           applySorting(guildhallRentedSwitch, "rented", (a, b) => a - b, setGuildhallRentedSwitch);
+        }
+        break;
+      case "auctioned":
+        if (type === "house") {
+          applySorting(houseAuctionedSwitch, "auctioned", (a, b) => a - b, setHouseAuctionedSwitch);
+        } else if (type === "guildhall") {
+          applySorting(guildhallAuctionedSwitch, "auctioned", (a, b) => a - b, setGuildhallAuctionedSwitch);
         }
         break;
       case "current_bid":
@@ -346,7 +356,7 @@ export const Houses = () => {
                       <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("house", "rent")}>Rent:</span></div>
                       <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("house", "rented")}>Rented:</span></div>
                       <div className="house-auctioned">
-                        <span className="auction-status-header">Auction status:</span>
+                        <span className="auction-status-header"><span className="clickable-header" onClick={() => sortListBy("house", "auctioned")}>Auction status:</span></span>
                         <div className="flexrownogap">
                           <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("house", "current_bid")}>Current bid:</span></div>
                           <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("house", "time_left")}>Time left:</span></div>
@@ -372,7 +382,7 @@ export const Houses = () => {
                       <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("guildhall", "rent")}>Rent:</span></div>
                       <div className="house-detail"><span className="clickable-header" onClick={() => sortListBy("guildhall", "rented")}>Rented:</span></div>
                       <div className="house-auctioned">
-                        <span className="auction-status-header">Auction status:</span>
+                        <span className="auction-status-header"><span className="clickable-header" onClick={() => sortListBy("guildhall", "auctioned")}>Auction status:</span></span>
                         <div className="flexrownogap">
                           <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("guildhall", "current_bid")}>Current bid:</span></div>
                           <div className="auction-status-child"><span className="clickable-header" onClick={() => sortListBy("guildhall", "time_left")}>Time left:</span></div>
