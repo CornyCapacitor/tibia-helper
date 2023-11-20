@@ -128,276 +128,183 @@ export const Houses = () => {
   const sortListBy = (type: string, value: string) => {
     console.log(value);
 
-    if (type === "house") {
-      if (value === "name") {
-        type NameComparision = { name: string }
-        if (houseNameSwitch === false) {
-          // A to Z
-          const currentSortFunction = (a: NameComparision, b: NameComparision) => a.name.localeCompare(b.name);
-          houses?.sort(currentSortFunction);
-          setHouseNameSwitch(!houseNameSwitch)
-          return
-        } else if (houseNameSwitch === true) {
-          // Z to A
-          const currentSortFunction = (a: NameComparision, b: NameComparision) => b.name.localeCompare(a.name);
-          houses?.sort(currentSortFunction);
-          setHouseNameSwitch(!houseNameSwitch)
-          return
-        }
-      } else if (value === "id") {
-        type IdComparision = { house_id: number }
-        if (houseIdSwitch === false) {
-          // Highest to Lowest
-          const currentSortFunction = (a: IdComparision, b: IdComparision) => b.house_id - a.house_id;
-          houses?.sort(currentSortFunction);
-          setHouseIdSwitch(!houseIdSwitch);
-          return
-        } else if (houseIdSwitch === true) {
-          // Lowest to Highest
-          const currentSortFunction = (a: IdComparision, b: IdComparision) => a.house_id - b.house_id;
-          houses?.sort(currentSortFunction);
-          setHouseIdSwitch(!houseIdSwitch);
-          return
-        }
-      } else if (value === "size") {
-        type SizeComparision = { size: number }
-        if (houseSizeSwitch === false) {
-          // Highest to Lowest
-          const currentSortFunction = (a: SizeComparision, b: SizeComparision) => b.size - a.size;
-          houses?.sort(currentSortFunction);
-          setHouseSizeSwitch(!houseSizeSwitch);
-          return
-        } else if (houseSizeSwitch === true) {
-          // Lowest to Highest
-          const currentSortFunction = (a: SizeComparision, b: SizeComparision) => a.size - b.size;
-          houses?.sort(currentSortFunction);
-          setHouseSizeSwitch(!houseSizeSwitch);
-          return
-        }
-      } else if (value === "rent") {
-        type RentComparision = { rent: number }
-        if (houseRentSwitch === false) {
-          // Highest to Lowest
-          const currentSortFunction = (a: RentComparision, b: RentComparision) => b.rent - a.rent;
-          houses?.sort(currentSortFunction);
-          setHouseRentSwitch(!houseRentSwitch);
-          return
-        } else if (houseRentSwitch === true) {
-          // Lowest to Highest
-          const currentSortFunction = (a: RentComparision, b: RentComparision) => a.rent - b.rent;
-          houses?.sort(currentSortFunction);
-          setHouseRentSwitch(!houseRentSwitch);
-          return
-        }
-      } else if (value === "rented") {
-        // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
-        type RentedComparision = { rented: boolean | any }
-        if (houseRentedSwitch === false) {
-          // True to False
-          const currentSortFunction = (a: RentedComparision, b: RentedComparision) => b.rented - a.rented;
-          houses?.sort(currentSortFunction);
-          setHouseRentedSwitch(!houseRentedSwitch);
-          return
-        } else if (houseRentedSwitch === true) {
-          // False to True
-          const currentSortFunction = (a: RentedComparision, b: RentedComparision) => a.rented - b.rented;
-          houses?.sort(currentSortFunction);
-          setHouseRentedSwitch(!houseRentedSwitch);
-          return
-        }
-      } else if (value === "current_bid") {
-        const sortedHouses = houses?.slice().sort((a, b) => {
-          const aBid = a.auction?.current_bid || 0;
-          const bBid = b.auction?.current_bid || 0;
+    const sortSwitch = (switchValue: boolean, key: string, compareFn: (a: any, b: any) => number, data: any[], switchSetter: React.Dispatch<React.SetStateAction<boolean>>) => {
+      const sortOrder = switchValue ? -1 : 1;
+      const sortFunction = (a: any, b: any) => sortOrder * compareFn(a[key], b[key]);
+      data.sort(sortFunction);
+      switchSetter(!switchValue);
+    };
 
-          if (a.auctioned !== b.auctioned) {
-            return a.auctioned ? -1 : 1;
-          }
-
-          if (a.auctioned) {
-            return (houseCurrentBidSwitch ? 1 : -1) * (bBid - aBid);
-          }
-
-          return 0;
-        });
-
-        setHouses(sortedHouses || null);
-        setHouseCurrentBidSwitch(!houseCurrentBidSwitch);
-      } else if (value === "time_left") {
-        const sortedHouses = houses?.slice().sort((a, b) => {
-          const aTimeLeft = a.auction?.time_left || '';
-          const bTimeLeft = b.auction?.time_left || '';
-
-          if (a.auctioned !== b.auctioned) {
-            return a.auctioned ? -1 : 1;
-          }
-
-          if (a.auctioned) {
-            const order = houseTimeLeftSwitch ? 1 : -1;
-            return order * aTimeLeft.localeCompare(bTimeLeft);
-          }
-
-          return 0;
-        });
-
-        setHouses(sortedHouses || null);
-        setHouseTimeLeftSwitch(!houseTimeLeftSwitch);
-      } else if (value === "finished") {
-        const sortedHouses = houses?.slice().sort((a, b) => {
-          const aFinished = a.auction?.finished || false;
-          const bFinished = b.auction?.finished || false;
-
-          if (a.auctioned !== b.auctioned) {
-            return a.auctioned ? -1 : 1;
-          }
-
-          if (a.auctioned) {
-            const order = houseFinishedSwitch ? -1 : 1;
-            return order * (aFinished === bFinished ? 0 : aFinished ? -1 : 1);
-          }
-
-          return 0;
-        });
-
-        setHouses(sortedHouses || null);
-        setHouseFinishedSwitch(!houseFinishedSwitch);
+    const applySorting = (switchValue: boolean, key: string, compareFn: (a: any, b: any) => number, switchSetter: React.Dispatch<React.SetStateAction<boolean>>) => {
+      if (type === "house") {
+        sortSwitch(switchValue, key, compareFn, houses || [], switchSetter);
+      } else if (type === "guildhall") {
+        sortSwitch(switchValue, key, compareFn, guildhalls || [], switchSetter);
       }
-    } else if (type === "guildhall") {
-      if (value === "name") {
-        type NameComparision = { name: string }
-        if (guildhallNameSwitch === false) {
-          // A to Z
-          const currentSortFunction = (a: NameComparision, b: NameComparision) => a.name.localeCompare(b.name);
-          guildhalls?.sort(currentSortFunction);
-          setGuildhallNameSwitch(!guildhallNameSwitch)
-          return
-        } else if (guildhallNameSwitch === true) {
-          // Z to A
-          const currentSortFunction = (a: NameComparision, b: NameComparision) => b.name.localeCompare(a.name);
-          guildhalls?.sort(currentSortFunction);
-          setGuildhallNameSwitch(!guildhallNameSwitch)
-          return
+    };
+
+    switch (value) {
+      case "name":
+        if (type === "house") {
+          applySorting(houseNameSwitch, "name", (a, b) => String(a).localeCompare(String(b)), setHouseNameSwitch);
+        } else if (type === "guildhall") {
+          applySorting(guildhallNameSwitch, "name", (a, b) => String(a).localeCompare(String(b)), setGuildhallNameSwitch);
         }
-      } else if (value === "id") {
-        type IdComparision = { house_id: number }
-        if (guildhallIdSwitch === false) {
-          // Highest to Lowest
-          const currentSortFunction = (a: IdComparision, b: IdComparision) => b.house_id - a.house_id;
-          guildhalls?.sort(currentSortFunction);
-          setGuildhallIdSwitch(!guildhallIdSwitch);
-          return
-        } else if (guildhallIdSwitch === true) {
-          // Lowest to Highest
-          const currentSortFunction = (a: IdComparision, b: IdComparision) => a.house_id - b.house_id;
-          guildhalls?.sort(currentSortFunction);
-          setGuildhallIdSwitch(!guildhallIdSwitch);
-          return
+        break;
+      case "id":
+        if (type === "house") {
+          applySorting(houseIdSwitch, "house_id", (a, b) => a - b, setHouseIdSwitch);
+        } else if (type === "guildhall") {
+          applySorting(guildhallIdSwitch, "house_id", (a, b) => a - b, setGuildhallIdSwitch);
         }
-      } else if (value === "size") {
-        type SizeComparision = { size: number }
-        if (guildhallSizeSwitch === false) {
-          // Highest to Lowest
-          const currentSortFunction = (a: SizeComparision, b: SizeComparision) => b.size - a.size;
-          guildhalls?.sort(currentSortFunction);
-          setGuildhallSizeSwitch(!guildhallSizeSwitch)
-          return
-        } else if (guildhallSizeSwitch === true) {
-          // Lowest to Highest
-          const currentSortFunction = (a: SizeComparision, b: SizeComparision) => a.size - b.size;
-          guildhalls?.sort(currentSortFunction);
-          setGuildhallSizeSwitch(!guildhallSizeSwitch);
-          return
+        break;
+      case "size":
+        if (type === "house") {
+          applySorting(houseSizeSwitch, "size", (a, b) => a - b, setHouseSizeSwitch);
+        } else if (type === "guildhall") {
+          applySorting(guildhallSizeSwitch, "size", (a, b) => a - b, setGuildhallSizeSwitch);
         }
-      } else if (value === "rent") {
-        type RentComparision = { rent: number }
-        if (guildhallRentSwitch === false) {
-          // Highest to Lowest
-          const currentSortFunction = (a: RentComparision, b: RentComparision) => b.rent - a.rent;
-          guildhalls?.sort(currentSortFunction);
-          setGuildhallRentSwitch(!guildhallRentSwitch);
-          return
-        } else if (guildhallRentSwitch === true) {
-          // Lowest to Highest
-          const currentSortFunction = (a: RentComparision, b: RentComparision) => a.rent - b.rent;
-          guildhalls?.sort(currentSortFunction);
-          setGuildhallRentSwitch(!guildhallRentSwitch);
-          return
+        break;
+      case "rent":
+        if (type === "house") {
+          applySorting(houseRentSwitch, "rent", (a, b) => a - b, setHouseRentSwitch);
+        } else if (type === "guildhall") {
+          applySorting(guildhallRentSwitch, "rent", (a, b) => a - b, setGuildhallRentSwitch);
         }
-      } else if (value === "rented") {
-        // Not intended use of any - I just don't know why it doesn't allow me to play on booleans
-        type RentedComparision = { rented: boolean | any }
-        if (guildhallRentedSwitch === false) {
-          // True to False
-          const currentSortFunction = (a: RentedComparision, b: RentedComparision) => b.rented - a.rented;
-          guildhalls?.sort(currentSortFunction);
-          setGuildhallRentedSwitch(!guildhallRentedSwitch);
-          return
-        } else if (guildhallRentedSwitch === true) {
-          // False to True
-          const currentSortFunction = (a: RentedComparision, b: RentedComparision) => a.rented - b.rented;
-          guildhalls?.sort(currentSortFunction);
-          setGuildhallRentedSwitch(!guildhallRentedSwitch);
-          return
+        break;
+      case "rented":
+        if (type === "house") {
+          applySorting(houseRentedSwitch, "rented", (a, b) => a - b, setHouseRentedSwitch);
+        } else if (type === "guildhall") {
+          applySorting(guildhallRentedSwitch, "rented", (a, b) => a - b, setGuildhallRentedSwitch);
         }
-      } else if (value === "current_bid") {
-        const sortedGuildhalls = guildhalls?.slice().sort((a, b) => {
-          const aBid = a.auction?.current_bid || 0;
-          const bBid = b.auction?.current_bid || 0;
+        break;
+      case "current_bid":
+        if (type === "house") {
+          const sortedHouses = houses?.slice().sort((a, b) => {
+            const aBid = a.auction?.current_bid || 0;
+            const bBid = b.auction?.current_bid || 0;
 
-          if (a.auctioned !== b.auctioned) {
-            return a.auctioned ? -1 : 1;
-          }
+            if (a.auctioned !== b.auctioned) {
+              return a.auctioned ? -1 : 1;
+            }
 
-          if (a.auctioned) {
-            return (guildhallCurrentBidSwitch ? 1 : -1) * (bBid - aBid);
-          }
+            if (a.auctioned) {
+              return (houseCurrentBidSwitch ? 1 : -1) * (bBid - aBid);
+            }
 
-          return 0;
-        });
+            return 0;
+          });
 
-        setGuildhalls(sortedGuildhalls || null);
-        setGuildhallCurrentBidSwitch(!guildhallCurrentBidSwitch);
-      } else if (value === "time_left") {
-        const sortedGuildhalls = guildhalls?.slice().sort((a, b) => {
-          const aTimeLeft = a.auction?.time_left || '';
-          const bTimeLeft = b.auction?.time_left || '';
+          setHouses(sortedHouses || null);
+          setHouseCurrentBidSwitch(!houseCurrentBidSwitch);
+        } else if (type === "guildhall") {
+          const sortedGuildhalls = guildhalls?.slice().sort((a, b) => {
+            const aBid = a.auction?.current_bid || 0;
+            const bBid = b.auction?.current_bid || 0;
 
-          if (a.auctioned !== b.auctioned) {
-            return a.auctioned ? -1 : 1;
-          }
+            if (a.auctioned !== b.auctioned) {
+              return a.auctioned ? -1 : 1;
+            }
 
-          if (a.auctioned) {
-            const order = houseTimeLeftSwitch ? 1 : -1;
-            return order * aTimeLeft.localeCompare(bTimeLeft);
-          }
+            if (a.auctioned) {
+              return (guildhallCurrentBidSwitch ? 1 : -1) * (bBid - aBid);
+            }
 
-          return 0;
-        });
+            return 0;
+          });
 
-        setGuildhalls(sortedGuildhalls || null);
-        setGuildhallTimeLeftSwitch(!guildhallTimeLeftSwitch);
-      } else if (value === "finished") {
-        const sortedGuildhalls = guildhalls?.slice().sort((a, b) => {
-          const aFinished = a.auction?.finished || false;
-          const bFinished = b.auction?.finished || false;
+          setGuildhalls(sortedGuildhalls || null);
+          setGuildhallCurrentBidSwitch(!guildhallCurrentBidSwitch);
+        }
+        break;
+      case "time_left":
+        if (type === "house") {
+          const sortedHouses = houses?.slice().sort((a, b) => {
+            const aTimeLeft = a.auction?.time_left || '';
+            const bTimeLeft = b.auction?.time_left || '';
 
-          if (a.auctioned !== b.auctioned) {
-            return a.auctioned ? -1 : 1;
-          }
+            if (a.auctioned !== b.auctioned) {
+              return a.auctioned ? -1 : 1;
+            }
 
-          if (a.auctioned) {
-            const order = houseFinishedSwitch ? -1 : 1;
-            return order * (aFinished === bFinished ? 0 : aFinished ? -1 : 1);
-          }
+            if (a.auctioned) {
+              const order = houseTimeLeftSwitch ? 1 : -1;
+              return order * aTimeLeft.localeCompare(bTimeLeft);
+            }
 
-          return 0;
-        });
+            return 0;
+          });
 
-        setGuildhalls(sortedGuildhalls || null);
-        setGuildhallFinishedSwitch(!guildhallFinishedSwitch);
-      }
+          setHouses(sortedHouses || null);
+          setHouseTimeLeftSwitch(!houseTimeLeftSwitch);
+        } else if (type === "guildhall") {
+          const sortedGuildhalls = guildhalls?.slice().sort((a, b) => {
+            const aTimeLeft = a.auction?.time_left || '';
+            const bTimeLeft = b.auction?.time_left || '';
+
+            if (a.auctioned !== b.auctioned) {
+              return a.auctioned ? -1 : 1;
+            }
+
+            if (a.auctioned) {
+              const order = houseTimeLeftSwitch ? 1 : -1;
+              return order * aTimeLeft.localeCompare(bTimeLeft);
+            }
+
+            return 0;
+          });
+
+          setGuildhalls(sortedGuildhalls || null);
+          setGuildhallTimeLeftSwitch(!guildhallTimeLeftSwitch);
+        }
+        break;
+      case "finished":
+        if (type === "house") {
+          const sortedHouses = houses?.slice().sort((a, b) => {
+            const aFinished = a.auction?.finished || false;
+            const bFinished = b.auction?.finished || false;
+
+            if (a.auctioned !== b.auctioned) {
+              return a.auctioned ? -1 : 1;
+            }
+
+            if (a.auctioned) {
+              const order = houseFinishedSwitch ? -1 : 1;
+              return order * (aFinished === bFinished ? 0 : aFinished ? -1 : 1);
+            }
+
+            return 0;
+          });
+
+          setHouses(sortedHouses || null);
+          setHouseFinishedSwitch(!houseFinishedSwitch);
+        } else if (type === "guildhall") {
+          const sortedGuildhalls = guildhalls?.slice().sort((a, b) => {
+            const aFinished = a.auction?.finished || false;
+            const bFinished = b.auction?.finished || false;
+
+            if (a.auctioned !== b.auctioned) {
+              return a.auctioned ? -1 : 1;
+            }
+
+            if (a.auctioned) {
+              const order = houseFinishedSwitch ? -1 : 1;
+              return order * (aFinished === bFinished ? 0 : aFinished ? -1 : 1);
+            }
+
+            return 0;
+          });
+
+          setGuildhalls(sortedGuildhalls || null);
+          setGuildhallFinishedSwitch(!guildhallFinishedSwitch);
+        }
+        break;
+      default:
+        break;
     }
   }
+
 
   return (
     <>
