@@ -80,115 +80,53 @@ export const Guilds = () => {
   }
 
   const sortListBy = (value: string) => {
-    console.log(`Sorting the table by: ${value}`)
+    console.log(`Sorting the table by: ${value}`);
 
-    if (value === "name") {
-      type NameComparision = { name: string }
-      if (nameSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: NameComparision, b: NameComparision) => a.name.localeCompare(b.name)
-        guildData?.members?.sort(currentSortFunction)
-        setNameSwitch(!nameSwitch)
-        return
-      } else if (nameSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: NameComparision, b: NameComparision) => b.name.localeCompare(a.name)
-        guildData?.members?.sort(currentSortFunction)
-        setNameSwitch(!nameSwitch)
-        return
-      }
-    } else if (value === "title") {
-      type TitleComparision = { title: string }
-      if (titleSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: TitleComparision, b: TitleComparision) => a.title.localeCompare(b.title)
-        guildData?.members?.sort(currentSortFunction)
-        setTitleSwitch(!titleSwitch)
-        return
-      } else if (titleSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: TitleComparision, b: TitleComparision) => b.title.localeCompare(a.title)
-        guildData?.members?.sort(currentSortFunction)
-        setTitleSwitch(!titleSwitch)
-        return
-      }
-    } else if (value === "rank") {
-      type RankComparision = { rank: string }
-      if (rankSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: RankComparision, b: RankComparision) => a.rank.localeCompare(b.rank)
-        guildData?.members?.sort(currentSortFunction)
-        setRankSwitch(!rankSwitch)
-        return
-      } else if (rankSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: RankComparision, b: RankComparision) => b.rank.localeCompare(a.rank)
-        guildData?.members?.sort(currentSortFunction)
-        setRankSwitch(!rankSwitch)
-        return
-      }
-    } else if (value === "vocation") {
-      type VocationComparision = { vocation: string }
-      if (vocationSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: VocationComparision, b: VocationComparision) => a.vocation.localeCompare(b.vocation)
-        guildData?.members?.sort(currentSortFunction)
-        setVocationSwitch(!vocationSwitch)
-        return
-      } else if (vocationSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: VocationComparision, b: VocationComparision) => b.vocation.localeCompare(a.vocation)
-        guildData?.members?.sort(currentSortFunction)
-        setVocationSwitch(!vocationSwitch)
-        return
-      }
-    } else if (value === "level") {
-      type LevelComparision = { level: number }
-      if (levelSwitch === false) {
-        // Highest to lowest
-        const currentSortFunction = (a: LevelComparision, b: LevelComparision) => b.level - a.level
-        guildData?.members?.sort(currentSortFunction)
-        setLevelSwitch(!levelSwitch)
-        return
-      } else if (levelSwitch === true) {
-        // Lowest to Highest
-        const currentSortFunction = (a: LevelComparision, b: LevelComparision) => a.level - b.level
-        guildData?.members?.sort(currentSortFunction)
-        setLevelSwitch(!levelSwitch)
-        return
-      }
-    } else if (value === "joined") {
-      type JoinedComparision = { joined: string }
-      if (joinedSwitch === false) {
-        // A to Z
-        const currentSortFunction = (a: JoinedComparision, b: JoinedComparision) => a.joined.localeCompare(b.joined)
-        guildData?.members?.sort(currentSortFunction)
-        setJoinedSwitch(!joinedSwitch)
-        return
-      } else if (joinedSwitch === true) {
-        // Z to A
-        const currentSortFunction = (a: JoinedComparision, b: JoinedComparision) => b.joined.localeCompare(a.joined)
-        guildData?.members?.sort(currentSortFunction)
-        setJoinedSwitch(!joinedSwitch)
-        return
-      }
-    } else if (value === "status") {
-      type StatusComparision = { status: string }
-      if (statusSwitch === false) {
-        // Online to Offline
-        const currentSortFunction = (a: StatusComparision, b: StatusComparision) => b.status.localeCompare(a.status)
-        guildData?.members?.sort(currentSortFunction);
-        setStatusSwitch(!statusSwitch);
-        return
-      } else if (statusSwitch === true) {
-        // Offline to Online
-        const currentSortFunction = (a: StatusComparision, b: StatusComparision) => a.status.localeCompare(b.status)
-        guildData?.members?.sort(currentSortFunction);
-        setStatusSwitch(!statusSwitch);
-        return
-      }
+    const sortSwitch = (switchValue: boolean, key: string) => {
+      const sortOrder = switchValue ? -1 : 1;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return (a: any, b: any) => {
+        if (typeof a[key] === 'string') {
+          return sortOrder * String(a[key]).localeCompare(String(b[key]));
+        } else if (typeof a[key] === 'number') {
+          return sortOrder * (a[key] - b[key]);
+        }
+        return 0;
+      };
+    };
+
+    const applySorting = (switchValue: boolean, key: string, switchSetter: React.Dispatch<React.SetStateAction<boolean>>) => {
+      const sortFunction = sortSwitch(switchValue, key);
+      guildData?.members?.sort(sortFunction);
+      switchSetter(!switchValue);
+    };
+
+    switch (value) {
+      case "name":
+        applySorting(nameSwitch, "name", setNameSwitch);
+        break;
+      case "title":
+        applySorting(titleSwitch, "title", setTitleSwitch);
+        break;
+      case "rank":
+        applySorting(rankSwitch, "rank", setRankSwitch);
+        break;
+      case "vocation":
+        applySorting(vocationSwitch, "vocation", setVocationSwitch);
+        break;
+      case "level":
+        applySorting(levelSwitch, "level", setLevelSwitch);
+        break;
+      case "joined":
+        applySorting(joinedSwitch, "joined", setJoinedSwitch);
+        break;
+      case "status":
+        applySorting(statusSwitch, "status", setStatusSwitch);
+        break;
+      default:
+        break;
     }
-  }
+  };
 
   return (
     <>
