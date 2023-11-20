@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Navbar } from "./Navbar"
 import './Spell.css'
 
 type Spell = {
@@ -70,8 +69,6 @@ export const Spell = () => {
 
   return (
     <>
-      <img className="background-image" src="https://wallpapercave.com/wp/wp7219143.jpg" />
-      <Navbar />
       <div className="spell-page">
         {isFetched && spell && spell.spell_information && spell.rune_information ?
           <>
