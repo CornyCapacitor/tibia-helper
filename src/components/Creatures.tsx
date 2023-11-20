@@ -1,8 +1,6 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Creatures.css';
-import { Footer } from './Footer';
-import { Navbar } from "./Navbar";
 
 type Creature = {
   name: string,
@@ -92,8 +90,6 @@ export const Creatures = () => {
 
   return (
     <>
-      <img className="background-image" src="https://wallpapercave.com/wp/wp7219130.jpg" />
-      <Navbar />
       <div className="creatures-page">
         {isFetched ?
           <>
@@ -120,7 +116,6 @@ export const Creatures = () => {
           </>
           : <>Loading creatures data</>}
       </div>
-      <Footer />
     </>
   )
 }

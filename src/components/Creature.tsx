@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import './Creature.css'
-import { Navbar } from "./Navbar"
 
 type Creature = {
   be_convinced: boolean,
@@ -58,8 +57,6 @@ export const Creature = () => {
 
   return (
     <>
-      <img className="background-image" src="https://wallpapercave.com/wp/wp7219130.jpg" />
-      <Navbar />
       <div className="creature-page">
         {isFetched && creature ?
           <>
