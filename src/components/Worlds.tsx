@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactNode, useEffect, useState } from 'react';
-import { Footer } from './Footer';
-import { Navbar } from './Navbar';
 import './Worlds.css';
 
 type World = {
@@ -270,8 +268,6 @@ export const Worlds = () => {
 
   return (
     <>
-      <img className="background-image" src="https://nextcloud.cipsoft.com/index.php/apps/files_sharing/publicpreview/JQfrYtjAAm2rEN7?file=/Artworks/Tibia_Artwork_ClientSummer2021.jpg&fileId=83676&x=1920&y=1080&a=true" />
-      <Navbar />
       <div className="worlds-page">
         <div className="worlds-page-display">
           {isFetched ?
@@ -312,7 +308,6 @@ export const Worlds = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   )
 }
