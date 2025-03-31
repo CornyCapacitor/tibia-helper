@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <footer>
       <div className="icons">
-        <a href="https://github.com/HornyCapacitor" target="_blank" >
+        <a href="https://github.com/CornyCapacitor" target="_blank" >
           <img className="icon" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" />
         </a>
         <a href="https://linkedin.com/in/mateusz-minder-b19303257" target="_blank" >

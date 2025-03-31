@@ -22,6 +22,7 @@ function App() {
       <Route path="/houses" element={<HousesPage />} />
       <Route path="/creatures" element={<CreaturesPage />} />
       <Route path="/creatures/:race" element={<CreaturePage />} />
+      <Route path="*" element={<span>Sorry, better look again for proper page bud!</span>} />
     </Routes>
   )
 }
