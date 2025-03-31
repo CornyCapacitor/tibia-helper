@@ -12,7 +12,7 @@ export const Home = () => {
         </div>
         <div className="home-right-section">
           <div className="image-container">
-            <img className="section-image" src="https://nextcloud.cipsoft.com/index.php/apps/files_sharing/publicpreview/JQfrYtjAAm2rEN7?file=/Artworks/Tibia_Artwork_ClientSummer2021.jpg&fileId=83676&x=1920&y=1080&a=true" />
+            <img className="section-image" src="https://wallpapercave.com/wp/wp7219136.jpg" />
           </div>
           <span className="right-section-header"><Link className="gold" to="/worlds">Worlds</Link></span>
           <span className="right-section-description">Check the world list, find yours and check it's properties!</span>
